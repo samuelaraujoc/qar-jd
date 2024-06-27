@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.alert {
+    text-align: center;
+}
+
+#chart {
+    margin-top: 20px;
+}
