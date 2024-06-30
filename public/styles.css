@@ -2,3 +2,88 @@
 #monitor-select option {
     cursor: pointer; /* Define o cursor como um ponteiro (dedo) */
 }
+
+.header-top {
+    background-color: #ff7900;
+    padding: 7px 0;
+    
+}
+
+.header-top .header-links a {
+    color: #ffffff;
+    margin-right: 8px;
+    text-decoration: none;
+   
+}
+
+.header-top .header-links span {
+    color: #fff;
+    margin-right: 5px;
+    cursor: pointer;
+    
+}
+
+.bg-yellow {
+    background-color: #ffc40c;
+}
+
+.navbar .nav-link {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.navbar .nav-link.active {
+    color: green !important;
+}
+
+.logo {
+    height: 50px; /* Ajuste a altura conforme necessário */
+    margin-right: 10px;
+}
+
+.shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+}
+
+.welcome-text {
+    max-width: 60%; /* Ajuste conforme necessário */
+    z-index: 1; /* Garante que o texto fique sobre as imagens */
+    position: relative;
+    top: 1%; /* Centraliza verticalmente */
+    transform: translateY(-50%);
+}
+
+.welcome-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1px;
+}
+
+.welcome-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+
+.welcome-section {
+    background-color: #f3f3f3;
+    padding: 80px;
+    position: relative;
+    text-align: center;
+    margin-top: -10px; /* Adiciona espaço superior para evitar sobreposição */
+}
+
+.welcome-image {
+    width: 86.5%; /* Ajuste a largura conforme necessário */
+    height: auto;
+    position: relative;
+    top: 51%; /* Centraliza verticalmente */
+    transform: translateY(-11%);
+}
+
+.left-image {
+    left: 0; /* Ajuste a posição conforme necessário */
+}
+
+.right-image {
+    right: 1%; /* Ajuste a posição conforme necessário */
+}
