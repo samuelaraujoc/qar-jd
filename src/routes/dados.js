@@ -8,9 +8,11 @@ router.get('/', async (req, res) => {
         const { singleDate, moqaID } = req.query;
         const query = {};
 
+         // Ao usar getUTCFullYear, getUTCMonth, e getUTCDate, você está garantindo que os valores de data e hora são precisos e consistentes, evitando os problemas de deslocamento de tempo que podem ocorrer com as outras duas formas.
         if (singleDate) {
-            const startTimestamp = new Date(singleDate).setHours(0, 0, 0, 0) / 1000;
-            const endTimestamp = new Date(singleDate).setHours(23, 59, 59, 999) / 1000;
+            const date = new Date(singleDate);
+            const startTimestamp = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0).getTime() / 1000;
+            const endTimestamp = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 23, 59, 59, 999).getTime() / 1000;
             query.Timestamp = {
                 $gte: startTimestamp,
                 $lte: endTimestamp
@@ -20,7 +22,7 @@ router.get('/', async (req, res) => {
         if (moqaID) {
             query.moqaID = moqaID;
         }
-    
+
         //Count é um contador que acrescentei para ver o numeros de Json retornando no Postman, para futuros teste.
         const dados = await DadoQualidadeAr.find(query);
         const count = dados.length;
