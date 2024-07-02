@@ -86,41 +86,53 @@
         <h3>Histórico</h3>
         <form id="dateForm" class="text-center mb-4">
             <div class="form-group">
-                <label for="startDate">Data de Início:</label>
-                <input type="date" id="startDate" name="startDate" class="form-control d-inline-block w-auto">
-                <label for="endDate">Data de Fim:</label>
-                <input type="date" id="endDate" name="endDate" class="form-control d-inline-block w-auto">
+                <label for="singleDate">Data:</label>
+                <input type="date" id="singleDate" name="singleDate" class="form-control d-inline-block w-auto">
                 <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
             </div>
             <div class="form-group">
                 <label for="monitor-select">Selecionar Monitor:</label>
                 <select id="monitor-select" class="form-control">
-                    <option value="DD56F0">(Praia de Iracema) Rua Tremembés (CITINOVA)</option>
-                    <option value="DCB604">(SEUMA) Av. Dep. Paulino Rocha, 1343</option>
-                    <option value="E4C790">(Centro) Rua Guilherme Rocha X Avenida Tristão Gonçalves (Praça da Lagoinha)
+                    <option value="DD56F0">(Praia de Iracema) Rua Tremembés (CITINOVA) - DD56F0</option>
+                    <option value="DCB604">(SEUMA) Av. Dep. Paulino Rocha, 1343 - DCB604</option>
+                    <option value="E4C790">(Centro) Rua Guilherme Rocha X Avenida Tristão Gonçalves (Praça da Lagoinha) - E4C790
                     </option>
-                    <option value="A5BBFC">(Cais do Porto) Av. José Sabóia (EMEIF Godofredo de Castro Filho)</option>
-                    <option value="A70044">(Siqueira) Av. Osório de Paiva X Rua Lebom Maia</option>
-                    <option value="AG4F3T">(Aerolândia / Rotatória) Av. Governador Raul Barbosa</option>
-                    <option value="DC40AC">(Aldeota / Praça Portugal) Av. Dom Luís (Praça Portugal)</option>
-                    <option value="DC663C">(Centro / Paço Municipal) Rua São José SN</option>
-                    <option value="DD2BA4">(Beira Mar) Av. Beira Mar X Av. Desembargador Moreira</option>
-                    <option value="DD2BDC">(Itaperi) Avenida Bernardo Manuel X Avenida Dr. Silas Munguba</option>
-                    <option value="DD31EC">(Mucuripe) Av. Vicente de Castro (Areninha Morro Santa Terezinha)</option>
-                    <option value="DD32D4">(SCSP) Av. Pontes Vieira</option>
-                    <option value="DD3468">(Passaré) Av. Pres. Juscelino Kubitschek X Av. dos Paroaras (Hospital Sarah)
+                    <option value="A5BBFC">(Cais do Porto) Av. José Sabóia (EMEIF Godofredo de Castro Filho) - A5BBFC</option>
+                    <option value="A70044">(Siqueira) Av. Osório de Paiva X Rua Lebom Maia - A70044</option>
+                    <option value="AG4F3T">(Aerolândia / Rotatória) Av. Governador Raul Barbosa - AG4F3T</option>
+                    <option value="DC40AC">(Aldeota / Praça Portugal) Av. Dom Luís (Praça Portugal)- DC40AC</option>
+                    <option value="DC663C">(Centro / Paço Municipal) Rua São José SN - DC663C</option>
+                    <option value="DD2BA4">(Beira Mar) Av. Beira Mar X Av. Desembargador Moreira - DD2BA4/option>
+                    <option value="DD2BDC">(Itaperi) Avenida Bernardo Manuel X Avenida Dr. Silas Munguba - DD2BDC</option>
+                    <option value="DD31EC">(Mucuripe) Av. Vicente de Castro (Areninha Morro Santa Terezinha) - DD31EC</option>
+                    <option value="DD32D4">(SCSP) Av. Pontes Vieira - DD32D4</option>
+                    <option value="DD3468">(Passaré) Av. Pres. Juscelino Kubitschek X Av. dos Paroaras (Hospital Sarah) - DD3468
                     </option>
-                    <option value="DD34F0">(Carlito Pamplona) Leste Oeste (EMEF Hilberto Silva)</option>
-                    <option value="DD3538">(Bairro de Fátima) Av. Treze de Maio (Igreja Nossa Sra. de Fátima)</option>
-                    <option value="DDCA1C">(José Walter) Avenida C X Avenida L (EMEIF Rachel de Queiroz)</option>
-                    <option value="E4D1F0">(Farias Brito) Av. José Jatahy X Av. Bezerra de Menezes</option>
-                    <option value="EDA13C">(Jardim Iracema) Av. Major Assis x Rua Alberto Ferreira</option>
-                    <option value="H45UY3">(Dionísio Torres / Face Clinica) Av. Antônio Sales</option>
+                    <option value="DD34F0">(Carlito Pamplona) Leste Oeste (EMEF Hilberto Silva) - DD34F0</option>
+                    <option value="DD3538">(Bairro de Fátima) Av. Treze de Maio (Igreja Nossa Sra. de Fátima) - DD3538</option>
+                    <option value="DDCA1C">(José Walter) Avenida C X Avenida L (EMEIF Rachel de Queiroz) - DDCA1C</option>
+                    <option value="E4D1F0">(Farias Brito) Av. José Jatahy X Av. Bezerra de Menezes - E4D1F0</option>
+                    <option value="EDA13C">(Jardim Iracema) Av. Major Assis x Rua Alberto Ferreira - EDA13C</option>
+                    <option value="H45UY3">(Dionísio Torres / Face Clinica) Av. Antônio Sales - H45UY3</option>
                 </select>
             </div>
         </form>
         <div id="chart"></div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <img src="img/logo-arqual.png" alt="Qar Fortaleza">
+            <img src="img/logo-citinovaBlack.png" alt="Citinova" class="citinova-logo">
+            <p><b>Fundação de Ciência, Tecnologia e Inovação de Fortaleza – Citinova</b><br>
+                Rua dos Pacajús, nº 33 - Praia de Iracema, Fortaleza - CE | CEP: 60060-520</p>
+            <img src="img/logo-pmf_urbanismo.png" alt="Prefeitura de Fortaleza">
+        </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="scripts.js"></script>
 </body>

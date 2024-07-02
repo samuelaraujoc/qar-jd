@@ -1,26 +1,27 @@
 #monitor-select,
 #monitor-select option {
-    cursor: pointer; /* Define o cursor como um ponteiro (dedo) */
+    cursor: pointer;
+    /* Define o cursor como um ponteiro (dedo) */
 }
 
 .header-top {
     background-color: #ff7900;
     padding: 7px 0;
-    
+
 }
 
 .header-top .header-links a {
     color: #ffffff;
     margin-right: 8px;
     text-decoration: none;
-   
+
 }
 
 .header-top .header-links span {
     color: #fff;
     margin-right: 5px;
     cursor: pointer;
-    
+
 }
 
 .bg-yellow {
@@ -36,54 +37,73 @@
     color: green !important;
 }
 
+
 .logo {
-    height: 50px; /* Ajuste a altura conforme necessário */
+    height: 50px;
+    /* Ajuste a altura conforme necessário */
     margin-right: 10px;
+    
 }
 
 .shadow-sm {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 }
 
-.welcome-text {
-    max-width: 60%; /* Ajuste conforme necessário */
-    z-index: 1; /* Garante que o texto fique sobre as imagens */
-    position: relative;
-    top: 1%; /* Centraliza verticalmente */
-    transform: translateY(-50%);
-}
-
-.welcome-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1px;
-}
-
-.welcome-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-
-.welcome-section {
-    background-color: #f3f3f3;
-    padding: 80px;
+/*Imagem Home */
+.banner-container {
     position: relative;
     text-align: center;
-    margin-top: -10px; /* Adiciona espaço superior para evitar sobreposição */
+    color: white;
 }
 
-.welcome-image {
-    width: 86.5%; /* Ajuste a largura conforme necessário */
+.banner-image {
+    width: 100%;
     height: auto;
-    position: relative;
-    top: 51%; /* Centraliza verticalmente */
-    transform: translateY(-11%);
+    margin-top: 2px;
+    /* Ajuste a margem conforme necessário */
 }
 
-.left-image {
-    left: 0; /* Ajuste a posição conforme necessário */
+/*Footer */
+
+.footer {
+    background-color: #FFCC00;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 13px solid rgba(255, 123, 0, 0.966); /* Adiciona uma borda laranja de 4px na parte superior */
+
 }
 
-.right-image {
-    right: 1%; /* Ajuste a posição conforme necessário */
+.footer img:last-child {
+    max-width: 180px; /* Ajuste o tamanho conforme necessário */
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer img {
+    max-width: 100px;
+    height: auto;
+    margin: 10px;
+}
+
+.footer p {
+    flex: 1;
+    margin: 10px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer p {
+        text-align: center;
+    }
 }

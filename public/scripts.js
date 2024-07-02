@@ -10,10 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchData(event) {
         event.preventDefault();
-        const startDate = document.getElementById('startDate').value;
-        const endDate = document.getElementById('endDate').value;
+        const singleDate = document.getElementById('singleDate').value;
         const moqaID = document.getElementById('monitor-select').value;
-        const query = `startDate=${startDate}&endDate=${endDate}&moqaID=${moqaID}`;
+        const query = `singleDate=${singleDate}&moqaID=${moqaID}`;
 
         // Limpar dados anteriores e gráfico
         clearPreviousData();

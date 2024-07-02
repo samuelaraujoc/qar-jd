@@ -5,13 +5,15 @@ const DadoQualidadeAr = require('../models/dadoQualidadeAr');
 // Endpoint existente para buscar dados com base em data
 router.get('/', async (req, res) => {
     try {
-        const { startDate, endDate, moqaID } = req.query;
+        const { singleDate, moqaID } = req.query;
         const query = {};
 
-        if (startDate && endDate) {
+        if (singleDate) {
+            const startTimestamp = new Date(singleDate).setHours(0, 0, 0, 0) / 1000;
+            const endTimestamp = new Date(singleDate).setHours(23, 59, 59, 999) / 1000;
             query.Timestamp = {
-                $gte: new Date(startDate).getTime() / 1000,
-                $lte: new Date(endDate).getTime() / 1000
+                $gte: startTimestamp,
+                $lte: endTimestamp
             };
         }
 
