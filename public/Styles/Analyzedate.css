@@ -4,3 +4,9 @@
     cursor: pointer;
     /* Define o cursor como um ponteiro (dedo) */
 }
+
+#chart2, #chart3 {
+    width: 100%;
+    height: 350px;
+  }
+  
