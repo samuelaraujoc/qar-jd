@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const chartContainer = document.querySelector('#chart');
     let chart; // Variável para armazenar a instância do gráfico
 
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const response = await fetch(`/dados?${query}`);
-            
+
             // Verificar se o conteúdo é JSON antes de tentar analisá-lo
             const contentType = response.headers.get('content-type');
             if (!contentType || !contentType.includes('application/json')) {

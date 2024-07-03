@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const { singleDate, moqaID } = req.query;
         const query = {};
 
-         // Ao usar getUTCFullYear, getUTCMonth, e getUTCDate, você está garantindo que os valores de data e hora são precisos e consistentes, evitando os problemas de deslocamento de tempo que podem ocorrer com as outras duas formas.
+         // Ao usar getUTCFullYear, getUTCMonth, e getUTCDate, para garantir que os valores de data e hora são precisos e consistentes, evitando os problemas de deslocamento de tempo que podem ocorrer com as outras duas formas.
         if (singleDate) {
             const date = new Date(singleDate);
             const startTimestamp = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0).getTime() / 1000;

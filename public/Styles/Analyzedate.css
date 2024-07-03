@@ -1,0 +1,6 @@
+#monitor-select,
+#monitor-select option,
+#another-monitor-select {
+    cursor: pointer;
+    /* Define o cursor como um ponteiro (dedo) */
+}

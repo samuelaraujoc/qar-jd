@@ -1,0 +1,84 @@
+/* Cabeçalho */
+.header-top {
+    background-color: #ff7900;
+    padding: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+.header-links a {
+    color: rgb(245, 242, 242); /* Cor inicial do link */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    padding: 5px 10px; /* Espaçamento interno para o link */
+    transition: color 0.3s, border-bottom 0.3s; /* Suaviza a transição das cores e borda */
+}
+
+.header-links a:hover {
+    color: rgb(6, 2, 20); /* Cor do link quando o mouse está sobre ele */
+}   
+
+/* barra de Navegação  */
+.bg-yellow {
+    background-color: #ffc40c;
+}
+
+.navbar .nav-link {
+    color: #000 !important;
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #527209 !important; /* Cor verde escuro ao passar o mouse */
+}
+.logo {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.custom-shadow {
+    box-shadow: 3px 1px 5px 2px rgba(0, 0, 0, 0.562); 
+}
+
+/* Estilos para o footer */
+.footer {
+    background-color: #FFCC00;
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 13px solid rgba(255, 123, 0, 0.966);
+    
+}
+
+.footer img:last-child {
+    max-width: 180px;
+    /* Ajuste o tamanho conforme necessário */
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer img {
+    max-width: 100px;
+    height: auto;
+    margin: 10px;
+}
+
+.footer p {
+    flex: 1;
+    margin: 10px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer p {
+        text-align: center;
+    }
+}
