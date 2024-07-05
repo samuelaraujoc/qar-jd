@@ -68,16 +68,16 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [{
                 name: 'PM2.5',
-                data: data.map(d => d.pm25)
+                data: data.map(d => d.pm25.toFixed(1)) // Formata para 1 casa decimal
             }, {
                 name: 'PM10',
-                data: data.map(d => d.pm10)
+                data: data.map(d => d.pm10.toFixed(1)) // Formata para 1 casa decimal
             }, {
                 name: 'Humidade',
-                data: data.map(d => d.hum)
+                data: data.map(d => d.hum.toFixed(1)) // Formata para 1 casa decimal
             }, {
                 name: 'Temperatura Externa',
-                data: data.map(d => d.extTemp)
+                data: data.map(d => d.extTemp.toFixed(1)) // Formata para 1 casa decimal
             }],
             xaxis: {
                 categories: data.map(d => new Date(d.Timestamp * 1000).toLocaleString())

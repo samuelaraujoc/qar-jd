@@ -12,67 +12,23 @@
 </head>
 
 <body>
-    <header class="header-top">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="header-links">
-                <a href="https://acessoainformacao.fortaleza.ce.gov.br/sistema/site/index.html?ReturnUrl=%2fsistema%2f"
-                    target="_blank">Acesso à informação</a> | <a href="https://transparencia.fortaleza.ce.gov.br/"
-                    target="_blank">Transparência</a> | <a href="https://catalogodeservicos.fortaleza.ce.gov.br/"
-                    target="_blank">Serviços</a> | <a
-                    href="https://legislacao.pgm.fortaleza.ce.gov.br/index.php/P%C3%A1gina_principal"
-                    target="_blank">Legislação</a>
-            </div>
-        </div>
-    </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-yellow custom-shadow">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="img/logo-arqual.png" alt="Qar Fortaleza" class="logo">
-                <img src="img/logoPref.png" alt="Prefeitura Fortaleza" class="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="home.html">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="analyzedata.html">Análise de Dados</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="politicaqar.html">Política Qualidade do Ar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Fale Conosco</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    
+    <div id="header"></div>
+    <div id="nav"></div>
 
     <div class="container mt-2">
-        <h1>Análise de dados - Qualidade do ar em Fortaleza</h1>
+        <h1 class="h1-custom-heading"> Análise de dados - Qualidade do ar em Fortaleza</h1>
         <div class="row">
             <div class="col-md-8">
                 <img src="img/map.png" alt="Mapa de Fortaleza" class="img-fluid">
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">IQAr Fortaleza</h3>
-                        <p class="card-text display-3">12</p>
-                        <p class="card-text">Bom</p>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <img src="img/Niveis.png" alt="Níveis de Poluição" class="img-fluid d-block mx-auto">
+                <img src="img/Poluentes.png" alt="Poluentes" class="img-fluid d-block mx-auto mt-2">
             </div>
         </div>
-        <h3>Recomendações à saúde</h3>
+
+        <h3 class="text-center" >Recomendações à saúde</h3>
         <div class="row">
             <div class="col-md-4">
                 <div class="alert alert-success">Exercícios ao ar livre</div>
@@ -84,7 +40,15 @@
                 <div class="alert alert-danger">Evitar áreas com alto índice de poluição</div>
             </div>
         </div>
-        <h3 class="text-center">Histórico</h3>
+
+        <h3 class="text-center"> Histórico</h3>
+
+        <div class="text-center">
+            <img src="img/pm2.5.png" alt="" class="img-fluid rounded-border">
+            <img src="img/pm10.png" alt="" class="img-fluid rounded-border">
+        </div>
+        
+
         <form id="dateForm" class="text-center mb-4">
             <div class="form-group">
                 <label for="singleDate">Data:</label>
@@ -124,48 +88,48 @@
                     <option value="H45UY3">(Dionísio Torres / Face Clinica) Av. Antônio Sales - H45UY3</option>
                 </select>
             </div>
-        </form>
-        <div id="chart"></div>
+            </form>
 
-        <form id="dateForm" class="text-center mb-4">
-            <div class="form-group">
-                <label for="singleDate2">Data:</label>
-                <input type="month" id="singleDate2" name="singleDate2" class="form-control d-inline-block w-auto">
-                <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
-            </div>
-            <div class="form-group text-center">
-                <label for="another-monitor-select">Selecionar Monitor:</label>
-                <select id="another-monitor-select" class="form-control"></select>
-            </div>
-        </form>
-        <div class="container">
-            <div class="row">
-              <div class="col-lg-6 col-12">
-                <div id="chart2" style="width: 100%; height: 350px;"></div>
-              </div>
-              <div class="col-lg-6 col-12">
-                <div id="chart3" style="width: 100%; height: 350px;"></div>
-              </div>
-            </div>
-          </div>          
-    </div>
+            <div id="chart" class="chart-container shadow "></div>
 
-    <footer class="footer">
-        <div class="container">
-            <img src="img/logo-arqual.png" alt="Qar Fortaleza">
-            <img src="img/logo-citinovaBlack.png" alt="Citinova" class="citinova-logo">
-            <p><b>Fundação de Ciência, Tecnologia e Inovação de Fortaleza – Citinova</b><br>
-                Rua dos Pacajús, nº 33 - Praia de Iracema, Fortaleza - CE | CEP: 60060-520</p>
-            <img src="img/logo-pmf_urbanismo.png" alt="Prefeitura de Fortaleza">
+            <form id="dateForm" class="text-center mb-4">
+                <div class="form-group">
+                    <label for="singleDate2">Data:</label>
+                    <input type="month" id="singleDate2" name="singleDate2" class="form-control d-inline-block w-auto">
+                    <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
+                </div>
+                <div class="form-group text-center">
+                    <label for="another-monitor-select">Selecionar Monitor:</label>
+                    <select id="another-monitor-select" class="form-control"></select>
+                </div>
+            </form>
+            
+            <div id="niveis2">
+                <img src="img/Niveis2.png" alt="Descrição da imagem" class="responsive-img">
+            </div>
+            
+            <div class="chart-container shadow ">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <div id="chart2" style="width: 100%; height: 350px;"></div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div id="chart3" style="width: 100%; height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="scripts/apex01.js"></script>
-    <script src="scripts/apex02.js"></script>
-    <script src="scripts/script.js"></script>
+
+        <div id="footer"></div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="scripts/apex01.js"></script>
+        <script src="scripts/apex02.js"></script>
+        <script src="scripts/monitores.js"></script>
+        <script src="scripts/script.js"></script>
 </body>
 
 </html>

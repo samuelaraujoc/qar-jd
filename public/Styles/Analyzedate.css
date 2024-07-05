@@ -10,3 +10,49 @@
     height: 350px;
   }
   
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+.h1-custom-heading{
+    font-weight: bold;
+    color: rgb(25, 135, 84);
+    margin-top: 30px;
+    margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+    text-align: center;
+}
+
+h3.text-center {
+    font-size: 30px; /* Ajuste o tamanho conforme necessário */
+    color: rgb(25, 135, 84);
+    font-weight: bold;
+
+}
+
+.text-center mb-4{
+  margin-top: 3000px;
+  margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+}
+
+.chart-container {
+    margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+    border-radius: 10px;
+}
+
+#niveis2{
+  margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente, se necessário */
+  margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+
+}
+.responsive-img {
+  max-width: 150%; /* Garante que a imagem seja responsiva */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.rounded-border {
+  border-radius: 130px; /* Ajuste o valor conforme necessário */
+}
