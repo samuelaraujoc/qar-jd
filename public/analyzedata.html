@@ -8,28 +8,21 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Styles/global.css">
     <link rel="stylesheet" href="Styles/Analyzedate.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
 </head>
 
 <body>
-    
+
     <div id="header"></div>
     <div id="nav"></div>
 
     <div class="container mt-2">
         <h1 class="h1-custom-heading"> Análise de dados - Qualidade do ar em Fortaleza</h1>
 
-        <div class="row">
-            <div id="map" class="col-md-8"> 
-            </div>
-            <div class="col-md-4">
-                <img src="img/Niveis.png" alt="Níveis de Poluição" class="img-fluid d-block mx-auto">
-                <img src="img/Poluentes.png" alt="Poluentes" class="img-fluid d-block mx-auto mt-2">
-            </div>
-        </div>
 
-        <h3 class="text-center" >Recomendações à saúde</h3>
+        <h3 class="text-center">Recomendações à saúde</h3>
         <div class="row">
             <div class="col-md-4">
                 <div class="alert alert-success">Exercícios ao ar livre</div>
@@ -48,7 +41,7 @@
             <img src="img/pm2.5.png" alt="" class="img-fluid rounded-border">
             <img src="img/pm10.png" alt="" class="img-fluid rounded-border">
         </div>
-        
+
 
         <form id="dateForm" class="text-center mb-4">
             <div class="form-group">
@@ -89,49 +82,53 @@
                     <option value="H45UY3">(Dionísio Torres / Face Clinica) Av. Antônio Sales - H45UY3</option>
                 </select>
             </div>
-            </form>
+        </form>
 
-            <div id="chart" class="chart-container shadow "></div>
+        <div id="chart" class="chart-container shadow "></div>
 
-            <form id="dateForm" class="text-center mb-4">
-                <div class="form-group">
-                    <label for="singleDate2">Data:</label>
-                    <input type="month" id="singleDate2" name="singleDate2" class="form-control d-inline-block w-auto">
-                    <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
-                </div>
-                <div class="form-group text-center">
-                    <label for="another-monitor-select">Selecionar Monitor:</label>
-                    <select id="another-monitor-select" class="form-control"></select>
-                </div>
-            </form>
-            
-            <div id="niveis2">
-                <img src="img/Niveis2.png" alt="Descrição da imagem" class="responsive-img">
+        <div id="chart-pollutants" class="chart-container shadow "></div>
+        <div id="chart-meteorological" class="chart-container shadow "></div>
+
+
+        <form id="dateForm2" class="text-center mb-4">
+            <div class="form-group">
+                <label for="singleDate2">Data:</label>
+                <input type="month" id="singleDate2" name="singleDate2" class="form-control d-inline-block w-auto">
+                <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
             </div>
-            
-            <div class="chart-container shadow ">
-                <div class="row">
-                    <div class="col-lg-6 col-12">
-                        <div id="chart2" style="width: 100%; height: 350px;"></div>
-                    </div>
-                    <div class="col-lg-6 col-12">
-                        <div id="chart3" style="width: 100%; height: 350px;"></div>
-                    </div>
+            <div class="form-group text-center">
+                <label for="another-monitor-select">Selecionar Monitor:</label>
+                <select id="another-monitor-select" class="form-control"></select>
+            </div>
+        </form>
+
+        <div id="niveis2">
+            <img src="img/Niveis2.png" alt="Descrição da imagem" class="responsive-img">
+        </div>
+
+        <div class="chart-container shadow">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div id="chart2" style="width: 100%; height: 350px;"></div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div id="chart3" style="width: 100%; height: 350px;"></div>
                 </div>
             </div>
         </div>
 
-        <div id="footer"></div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <script src="scripts/apex01.js"></script>
-        <script src="scripts/apex02.js"></script>
-        <script src="scripts/monitores.js"></script>
-        <script src="scripts/script.js"></script>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
-        <script src="./scripts/mapa.js"></script>
+    <div id="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="scripts/apex01.js"></script>
+    <script src="scripts/apex02.js"></script>
+    <script src="scripts/monitores.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
+
 </html>

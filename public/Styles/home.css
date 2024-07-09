@@ -1,0 +1,107 @@
+.banner-container {
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: none;
+    border-bottom-left-radius: 120px;
+    border-bottom-right-radius: 120px
+}
+
+.banner-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+}
+
+.map-button {
+    position: absolute;
+    top: 90%; /* Ajuste conforme necessário */
+    left: 50%; /* Ajuste conforme necessário */
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #41c006;
+    color: rgb(242, 243, 243);
+    border: 2px solid #05473c;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-button:hover {
+    background-color: #045a12;
+}
+
+@media (max-width: 1200px) {
+    .map-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    .map-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .map-button {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .map-button {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+}
+
+.popup {
+    font-size: 1.0rem;
+}
+
+/* mapa */
+#map { 
+    height: 900px;
+    width: 100%; 
+    border: 2px solid #035a0a;
+    border-radius: 5px; 
+}
+.custom-container {
+    padding-left: 30px;  
+    padding-right: 30px; 
+}
+
+.img-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    padding-left: 0; 
+    padding-right: 0; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-align: center; 
+}
+
+@media (min-width: 1600px) {
+    .custom-container {
+        padding-left: 15px;  
+        padding-right: 15px; 
+    }
+    #map {
+        height: 860px; 
+    }
+}

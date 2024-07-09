@@ -1,4 +1,4 @@
-//Reaproveitar  Header, nav e foorter  HTML
+// Carregar Includs HTML
 function loadHTML(elementId, url) {
     fetch(url)
         .then(response => {

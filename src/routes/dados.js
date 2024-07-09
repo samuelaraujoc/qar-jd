@@ -6,25 +6,66 @@ const DadoQualidadeAr = require('../models/dadoQualidadeAr');
 router.get('/', async (req, res) => {
     try {
         const { singleDate, moqaID } = req.query;
-        const query = {};
+        const match = {};
 
-         // Ao usar getUTCFullYear, getUTCMonth, e getUTCDate, para garantir que os valores de data e hora são precisos e consistentes, evitando os problemas de deslocamento de tempo que podem ocorrer com as outras duas formas.
         if (singleDate) {
             const date = new Date(singleDate);
             const startTimestamp = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0).getTime() / 1000;
             const endTimestamp = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 23, 59, 59, 999).getTime() / 1000;
-            query.Timestamp = {
+            match.Timestamp = {
                 $gte: startTimestamp,
                 $lte: endTimestamp
             };
         }
 
         if (moqaID) {
-            query.moqaID = moqaID;
+            match.moqaID = moqaID;
         }
 
-        //Count é um contador que acrescentei para ver o numeros de Json retornando no Postman, para futuros teste.
-        const dados = await DadoQualidadeAr.find(query);
+        // Agregação para calcular a média por hora
+        const dados = await DadoQualidadeAr.aggregate([
+            { $match: match },
+            {
+                $group: {
+                    _id: {
+                        year: { $year: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
+                        month: { $month: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
+                        day: { $dayOfMonth: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
+                        hour: { $hour: { $toDate: { $multiply: ["$Timestamp", 1000] } } }
+                    },
+                    avgPM25: { $avg: "$pm25" },
+                    avgPM10: { $avg: "$pm10" },
+                    avgHum: { $avg: "$hum" },
+                    avgExtTemp: { $avg: "$extTemp" },
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $project: {
+                    _id: 0,
+                    Timestamp: {
+                        $dateToString: {
+                            format: "%Y-%m-%dT%H:00:00Z",
+                            date: {
+                                $dateFromParts: {
+                                    year: "$_id.year",
+                                    month: "$_id.month",
+                                    day: "$_id.day",
+                                    hour: "$_id.hour"
+                                }
+                            }
+                        }
+                    },
+                    avgPM25: { $round: ["$avgPM25", 1] },
+                    avgPM10: { $round: ["$avgPM10", 1] },
+                    avgHum: { $round: ["$avgHum", 1] },
+                    avgExtTemp: { $round: ["$avgExtTemp", 1] },
+                    count: 1
+                }
+            },
+            { $sort: { Timestamp: 1 } }
+        ]);
+
         const count = dados.length;
 
         res.json({ count: count, documents: dados });

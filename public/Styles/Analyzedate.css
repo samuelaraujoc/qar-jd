@@ -2,7 +2,6 @@
 #monitor-select option,
 #another-monitor-select {
     cursor: pointer;
-    /* Define o cursor como um ponteiro (dedo) */
 }
 
 #chart2, #chart3 {
@@ -20,12 +19,12 @@
     font-weight: bold;
     color: rgb(25, 135, 84);
     margin-top: 30px;
-    margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+    margin-bottom: 10px; 
     text-align: center;
 }
 
 h3.text-center {
-    font-size: 30px; /* Ajuste o tamanho conforme necessário */
+    font-size: 30px; 
     color: rgb(25, 135, 84);
     font-weight: bold;
     margin-top: 10px;
@@ -34,38 +33,26 @@ h3.text-center {
 
 .text-center mb-4{
   margin-top: 3000px;
-  margin-bottom: 10px; /* Ajuste o valor conforme necessário */
+  margin-bottom: 10px; 
 }
 
 .chart-container {
-    margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+    margin-bottom: 20px; 
     border-radius: 10px;
 }
 
 #niveis2{
-  margin-bottom: 20px; /* Ajuste o valor conforme necessário */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente, se necessário */
-  margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+  margin-bottom: 20px; 
+  justify-content: center; 
+  margin-bottom: 20px; 
 
 }
 .responsive-img {
-  max-width: 150%; /* Garante que a imagem seja responsiva */
-  height: auto; /* Mantém a proporção da imagem */
+  max-width: 150%; 
+  height: auto; 
 }
 
 .rounded-border {
-  border-radius: 130px; /* Ajuste o valor conforme necessário */
+  border-radius: 130px; 
 }
 
-#map { 
-    height: 500px;
-    width: 800px;
-    border: 2px solid #000; /* Adiciona uma borda preta de 2px */
-    border-radius: 5px; /* Adiciona bordas arredondadas */
-    
- }
- 
-.popup{
- font-size: 1.0rem;
-}
