@@ -23,14 +23,14 @@
 
 .map-button {
     position: absolute;
-    top: 90%; /* Ajuste conforme necessário */
-    left: 50%; /* Ajuste conforme necessário */
-    transform: translate(-50%, -50%);
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     background-color: #41c006;
-    color: rgb(242, 243, 243);
+    color: #fff;
     border: 2px solid #05473c;
     border-radius: 5px;
     cursor: pointer;
@@ -45,13 +45,6 @@
     .map-button {
         font-size: 14px;
         padding: 8px 16px;
-    }
-}
-
-@media (max-width: 992px) {
-    .map-button {
-        font-size: 12px;
-        padding: 6px 12px;
     }
 }
 

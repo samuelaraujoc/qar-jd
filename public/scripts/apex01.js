@@ -41,24 +41,38 @@ document.addEventListener('DOMContentLoaded', function () {
     function initializeEmptyCharts() {
         const optionsPollutants = {
             chart: {
-                type: 'bar', // Mudança para gráfico de barras
+                type: 'bar',
                 height: 350
             },
             series: [],
             xaxis: {
-                categories: []
-            }
+                categories: [],
+                labels: {
+                    formatter: function (value) {
+                        const date = new Date(value);
+                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                    }
+                }
+            },
+            colors: ['#000000', '#808080']
         };
 
         const optionsMeteorological = {
             chart: {
-                type: 'bar', // Mudança para gráfico de barras
+                type: 'line',
                 height: 350
             },
             series: [],
             xaxis: {
-                categories: []
-            }
+                categories: [],
+                labels: {
+                    formatter: function (value) {
+                        const date = new Date(value);
+                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                    }
+                }
+            },
+            colors: ['#0000FF', '#FF0000']
         };
 
         chartPollutants = new ApexCharts(chartPollutantsContainer, optionsPollutants);
@@ -82,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderCharts(data) {
         const optionsPollutants = {
             chart: {
-                type: 'bar', // Mudança para gráfico de barras
+                type: 'bar',
                 height: 350
             },
             series: [{
@@ -93,13 +107,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 data: data.map(d => d.avgPM10)
             }],
             xaxis: {
-                categories: data.map(d => new Date(d.Timestamp).toLocaleString())
-            }
+                categories: data.map(d => new Date(d.Timestamp).getTime()), // Usar timestamp para melhor formatação
+                labels: {
+                    formatter: function (value) {
+                        const date = new Date(value);
+                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                    }
+                }
+            },
+            colors: ['#000000', '#808080']
         };
 
         const optionsMeteorological = {
             chart: {
-                type: 'bar', // Mudança para gráfico de barras
+                type: 'line',
                 height: 350
             },
             series: [{
@@ -110,8 +131,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 data: data.map(d => d.avgExtTemp)
             }],
             xaxis: {
-                categories: data.map(d => new Date(d.Timestamp).toLocaleString())
-            }
+                categories: data.map(d => new Date(d.Timestamp).getTime()), // Usar timestamp para melhor formatação
+                labels: {
+                    formatter: function (value) {
+                        const date = new Date(value);
+                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                    }
+                }
+            },
+            colors: ['#0000FF', '#FF0000']
         };
 
         chartPollutants = new ApexCharts(chartPollutantsContainer, optionsPollutants);

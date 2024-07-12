@@ -7,15 +7,16 @@
 #chart2, #chart3 {
     width: 100%;
     height: 350px;
-  }
+    
+}
 
-  .img-fluid {
+.img-fluid {
     max-width: 100%;
     height: auto;
     margin-top: 10px;
-  }
-  
-.h1-custom-heading{
+}
+
+.h1-custom-heading {
     font-weight: bold;
     color: rgb(25, 135, 84);
     margin-top: 30px;
@@ -28,12 +29,11 @@ h3.text-center {
     color: rgb(25, 135, 84);
     font-weight: bold;
     margin-top: 10px;
-
 }
 
-.text-center mb-4{
-  margin-top: 3000px;
-  margin-bottom: 10px; 
+.text-center.mb-4 {
+    margin-top: 30px; 
+    margin-bottom: 10px; 
 }
 
 .chart-container {
@@ -41,18 +41,16 @@ h3.text-center {
     border-radius: 10px;
 }
 
-#niveis2{
-  margin-bottom: 20px; 
-  justify-content: center; 
-  margin-bottom: 20px; 
-
+#niveis2 {
+    margin-bottom: 20px; 
+  
 }
+
 .responsive-img {
-  max-width: 150%; 
-  height: auto; 
+    max-width: 150%; 
+    height: auto; 
 }
 
 .rounded-border {
-  border-radius: 130px; 
+    border-radius: 130px; 
 }
-
