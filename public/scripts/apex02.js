@@ -1,165 +1,131 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // Opções do primeiro gráfico Heatmap
-    var options1 = {
-        series: [{
-                name: 'Metric1',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            },
-            {
-                name: 'Metric2',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            },
-            {
-                name: 'Metric3',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            }
-        ],
-        chart: {
-            height: 350,
-            type: 'heatmap',
-        },
-        plotOptions: {
-            heatmap: {
-                colorScale: {
-                    ranges: [{
-                            from: 0,
-                            to: 25,
-                            color: '#008FFB'
-                        },
-                        {
-                            from: 26,
-                            to: 50,
-                            color: '#00E396'
-                        },
-                        {
-                            from: 51,
-                            to: 75,
-                            color: '#FEB019'
-                        },
-                        {
-                            from: 76,
-                            to: 100,
-                            color: '#FF4560'
-                        }
-                    ]
-                }
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        title: {
-            text: 'HeatMap Chart 1 (Color Range)'
-        },
-    };
+document.addEventListener('DOMContentLoaded', function () {
+    const chartPM25Container = document.querySelector('#chart2');
+    const chartPM10Container = document.querySelector('#chart3');
+    let chartPM25, chartPM10;
 
-    var options2 = {
-        series: [{
-                name: 'Metric4',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            },
-            {
-                name: 'Metric5',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            },
-            {
-                name: 'Metric6',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            }
-        ],
-        chart: {
-            height: 350,
-            type: 'heatmap',
-        },
-        plotOptions: {
-            heatmap: {
-                colorScale: {
-                    ranges: [{
-                            from: 0,
-                            to: 25,
-                            color: '#008FFB'
-                        },
-                        {
-                            from: 26,
-                            to: 50,
-                            color: '#00E396'
-                        },
-                        {
-                            from: 51,
-                            to: 75,
-                            color: '#FEB019'
-                        },
-                        {
-                            from: 76,
-                            to: 100,
-                            color: '#FF4560'
-                        }
-                    ]
-                }
-            }
-        },
-        dataLabels: {
-            enabled: false
-        },
-        title: {
-            text: 'HeatMap Chart 2 (Color Range)'
-        },
-    };
+    initializeEmptyCharts();
 
-    var chart1 = new ApexCharts(document.querySelector("#chart2"), options1);
-    var chart2 = new ApexCharts(document.querySelector("#chart3"), options2);
-    chart1.render();
-    chart2.render();
+    document.getElementById('dateForm2').addEventListener('submit', fetchData);
 
-    document.getElementById('dateForm2').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        fetchData2(); 
-    });
-
-    async function fetchData2() {
+    async function fetchData(event) {
+        event.preventDefault();
         const singleDate2 = document.getElementById('singleDate2').value;
-        const monitorSelect = document.getElementById('another-monitor-select').value;
-        const query = `singleDate2=${singleDate2}&monitorSelect=${monitorSelect}`;
+        const moqaID = document.getElementById('another-monitor-select').value;
 
+        // Verifica se a data foi inserida
+        if (!singleDate2) {
+            alert('Por favor, selecione uma data.');
+            return;
+        }
+
+        const query = `singleDate2=${singleDate2}&moqaID=${moqaID}`;
+
+        clearPreviousData();
 
         try {
-            const data = await fetch(`/dados2?${query}`).then(response => response.json());
+            const response = await fetch(`/dados2?${query}`);
 
-            console.log('Dados recebidos:', data);
-            renderCharts2(data); 
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('A resposta não é JSON');
+            }
+
+            const data = await response.json();
+            console.log('Dados recebidos:', data.documents);
+            renderCharts(data.documents);
         } catch (error) {
             console.error('Erro ao buscar dados:', error);
         }
     }
 
-    function renderCharts2(data) {
-        chart2.updateSeries([{
-                name: 'Metric4',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
+    function initializeEmptyCharts() {
+        const optionsPM25 = {
+            chart: {
+                type: 'heatmap',
+                height: 350
             },
-            {
-                name: 'Metric5',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
+            series: [],
+            xaxis: {
+                type: 'category',
+                categories: []
             },
-            {
-                name: 'Metric6',
-                data: generateHeatmapData(18, { min: 0, max: 90 })
-            }
-        ]);
+            colors: ["#008FFB"]
+        };
+
+        const optionsPM10 = {
+            chart: {
+                type: 'heatmap',
+                height: 350
+            },
+            series: [],
+            xaxis: {
+                type: 'category',
+                categories: []
+            },
+            colors: ["#00E396"]
+        };
+
+        chartPM25 = new ApexCharts(chartPM25Container, optionsPM25);
+        chartPM10 = new ApexCharts(chartPM10Container, optionsPM10);
+
+        chartPM25.render();
+        chartPM10.render();
     }
 
-    function generateHeatmapData(count, yrange) {
-        var i = 0;
-        var series = [];
-        while (i < count) {
-            var x = 'W' + (i + 1).toString();
-            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-            series.push({
-                x: x,
-                y: y
-            });
-            i++;
+    function clearPreviousData() {
+        console.clear();
+
+        if (chartPM25) {
+            chartPM25.destroy();
         }
-        return series;
+        if (chartPM10) {
+            chartPM10.destroy();
+        }
+    }
+
+    function renderCharts(data) {
+        const categories = data.map(d => d.date);
+
+        const seriesPM25 = [{
+            name: 'PM2.5',
+            data: data.map(d => ({ x: d.date, y: d.avgPM25 }))
+        }];
+
+        const seriesPM10 = [{
+            name: 'PM10',
+            data: data.map(d => ({ x: d.date, y: d.avgPM10 }))
+        }];
+
+        const optionsPM25 = {
+            chart: {
+                type: 'heatmap',
+                height: 350
+            },
+            series: seriesPM25,
+            xaxis: {
+                type: 'category',
+                categories: categories
+            },
+            colors: ["#008FFB"]
+        };
+
+        const optionsPM10 = {
+            chart: {
+                type: 'heatmap',
+                height: 350
+            },
+            series: seriesPM10,
+            xaxis: {
+                type: 'category',
+                categories: categories
+            },
+            colors: ["#00E396"]
+        };
+
+        chartPM25 = new ApexCharts(chartPM25Container, optionsPM25);
+        chartPM10 = new ApexCharts(chartPM10Container, optionsPM10);
+
+        chartPM25.render();
+        chartPM10.render();
     }
 });
