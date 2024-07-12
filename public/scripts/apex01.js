@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             },
-            colors: ['#000000', '#808080']
+            colors: ['#000000', '#404040']
         };
 
         const optionsMeteorological = {
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             },
-            colors: ['#000000', '#808080']
+            colors: ['#000000', '#404040']
         };
 
         const optionsMeteorological = {
