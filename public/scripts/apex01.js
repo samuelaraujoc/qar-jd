@@ -45,11 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [],
             xaxis: {
-                categories: [],
+                categories: [], // Manter as categorias vazias
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        // Aqui, 'value' será o índice do array de categorias
+                        const date = new Date(value); // Obtenha a data correspondente
+                        return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
             },
@@ -75,11 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [],
             xaxis: {
-                categories: [],
+                categories: [], // Manter as categorias vazias
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        // Aqui, 'value' será o índice do array de categorias
+                        const date = new Date(value); // Obtenha a data correspondente
+                        return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
             },
@@ -119,12 +121,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function renderCharts(data) {
-        const categories = data.map(d => new Date(d.Timestamp).getTime());
+        const categories = data.map(d => `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`);
 
         const seriesPM25 = {
             name: 'PM2.5',
             data: data.map(d => ({
-                x: new Date(d.Timestamp).getTime(),
+                x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
                 y: d.avgPM25,
                 fillColor: getColorForPM25(d.avgPM25)
             }))
@@ -133,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const seriesPM10 = {
             name: 'PM10',
             data: data.map(d => ({
-                x: new Date(d.Timestamp).getTime(),
+                x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
                 y: d.avgPM10,
                 fillColor: getColorForPM10(d.avgPM10)
             }))
@@ -149,8 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 categories: categories,
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        return value; // Manter o formato da hora como definido nas categorias
                     }
                 }
             },
@@ -175,17 +176,22 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [{
                 name: 'Humidade',
-                data: data.map(d => d.avgHum)
+                data: data.map(d => ({
+                    x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
+                    y: d.avgHum
+                }))
             }, {
                 name: 'Temperatura Externa',
-                data: data.map(d => d.avgExtTemp)
+                data: data.map(d => ({
+                    x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
+                    y: d.avgExtTemp
+                }))
             }],
             xaxis: {
                 categories: categories,
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        return value; // Manter o formato da hora como definido nas categorias
                     }
                 }
             },
