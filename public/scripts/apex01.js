@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const singleDate = document.getElementById('singleDate').value;
         const moqaID = document.getElementById('monitor-select').value;
 
-        // Verifica se a data foi inserida
         if (!singleDate) {
             alert('Por favor, selecione uma data.');
             return;
@@ -46,15 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [],
             xaxis: {
-                categories: [],
+                categories: [], // Manter as categorias vazias
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        // Aqui, 'value' será o índice do array de categorias
+                        const date = new Date(value); // Obtenha a data correspondente
+                        return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
             },
-            colors: ['#000000', '#404040']
+            plotOptions: {
+                bar: {
+                    distributed: true,
+                    horizontal: false,
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function (val) {
+                    return val.toFixed(1);
+                }
+            },
+            colors: []
         };
 
         const optionsMeteorological = {
@@ -64,11 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [],
             xaxis: {
-                categories: [],
+                categories: [], // Manter as categorias vazias
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        // Aqui, 'value' será o índice do array de categorias
+                        const date = new Date(value); // Obtenha a data correspondente
+                        return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
             },
@@ -83,8 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function clearPreviousData() {
-        console.clear();
-
         if (chartPollutants) {
             chartPollutants.destroy();
         }
@@ -93,29 +104,69 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function getColorForPM25(value) {
+        if (value <= 25) return '#52ae32';
+        if (value <= 50) return '#f1dd00';
+        if (value <= 75) return '#ef7d00';
+        if (value <= 125) return '#d51224';
+        return '#683793';
+    }
+
+    function getColorForPM10(value) {
+        if (value <= 50) return '#52ae32';
+        if (value <= 100) return '#f1dd00';
+        if (value <= 150) return '#ef7d00';
+        if (value <= 250) return '#d51224';
+        return '#683793';
+    }
+
     function renderCharts(data) {
+        const categories = data.map(d => `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`);
+
+        const seriesPM25 = {
+            name: 'PM2.5',
+            data: data.map(d => ({
+                x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
+                y: d.avgPM25,
+                fillColor: getColorForPM25(d.avgPM25)
+            }))
+        };
+
+        const seriesPM10 = {
+            name: 'PM10',
+            data: data.map(d => ({
+                x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
+                y: d.avgPM10,
+                fillColor: getColorForPM10(d.avgPM10)
+            }))
+        };
+
         const optionsPollutants = {
             chart: {
                 type: 'bar',
                 height: 350
             },
-            series: [{
-                name: 'PM2.5',
-                data: data.map(d => d.avgPM25)
-            }, {
-                name: 'PM10',
-                data: data.map(d => d.avgPM10)
-            }],
+            series: [seriesPM25, seriesPM10],
             xaxis: {
-                categories: data.map(d => new Date(d.Timestamp).getTime()), // Usar timestamp para melhor formatação
+                categories: categories,
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        return value; // Manter o formato da hora como definido nas categorias
                     }
                 }
             },
-            colors: ['#000000', '#404040']
+            plotOptions: {
+                bar: {
+                    distributed: false,
+                    horizontal: false,
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                formatter: function (val) {
+                    return val.toFixed(1);
+                }
+            },
         };
 
         const optionsMeteorological = {
@@ -125,17 +176,22 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [{
                 name: 'Humidade',
-                data: data.map(d => d.avgHum)
+                data: data.map(d => ({
+                    x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
+                    y: d.avgHum
+                }))
             }, {
                 name: 'Temperatura Externa',
-                data: data.map(d => d.avgExtTemp)
+                data: data.map(d => ({
+                    x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
+                    y: d.avgExtTemp
+                }))
             }],
             xaxis: {
-                categories: data.map(d => new Date(d.Timestamp).getTime()), // Usar timestamp para melhor formatação
+                categories: categories,
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value);
-                        return date.getHours() + ':' + String(date.getMinutes()).padStart(2, '0');
+                        return value; // Manter o formato da hora como definido nas categorias
                     }
                 }
             },
