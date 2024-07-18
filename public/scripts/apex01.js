@@ -45,11 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [],
             xaxis: {
-                categories: [], // Manter as categorias vazias
+                categories: [],
                 labels: {
                     formatter: function (value) {
-                        // Aqui, 'value' será o índice do array de categorias
-                        const date = new Date(value); // Obtenha a data correspondente
+                        const date = new Date(value);
                         return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
@@ -66,7 +65,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     return val.toFixed(1);
                 }
             },
-            colors: []
+            colors: ['#2c3339', '#747474'], // Cores personalizadas para PM2.5 e PM10
+            legend: {
+                fontSize: '14px',
+                fontWeight: 'bold',
+                labels: {
+                    colors: ['#000'], 
+                },
+            }
         };
 
         const optionsMeteorological = {
@@ -76,16 +82,22 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             series: [],
             xaxis: {
-                categories: [], // Manter as categorias vazias
+                categories: [],
                 labels: {
                     formatter: function (value) {
-                        // Aqui, 'value' será o índice do array de categorias
-                        const date = new Date(value); // Obtenha a data correspondente
+                        const date = new Date(value); 
                         return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
             },
-            colors: ['#0000FF', '#FF0000']
+            colors: ['#0000FF', '#FF0000'],
+            legend: {
+                fontSize: '14px',
+                fontWeight: 'bold',
+                labels: {
+                    colors: ['#000'],
+                },
+            }
         };
 
         chartPollutants = new ApexCharts(chartPollutantsContainer, optionsPollutants);
@@ -151,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 categories: categories,
                 labels: {
                     formatter: function (value) {
-                        return value; // Manter o formato da hora como definido nas categorias
+                        return value; 
                     }
                 }
             },
@@ -167,6 +179,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     return val.toFixed(1);
                 }
             },
+            colors: ['#2c3339', '#747474'], // Cores personalizadas para PM2.5 e PM10
+            legend: {
+                fontSize: '14px',
+                fontWeight: 'bold',
+                labels: {
+                    colors: ['#000'],
+                },
+            }
         };
 
         const optionsMeteorological = {
@@ -191,11 +211,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 categories: categories,
                 labels: {
                     formatter: function (value) {
-                        return value; // Manter o formato da hora como definido nas categorias
+                        return value; 
                     }
                 }
             },
-            colors: ['#0000FF', '#FF0000']
+            colors: ['#0000FF', '#FF0000'],
+            legend: {
+                fontSize: '14px',
+                fontWeight: 'bold',
+                labels: {
+                    colors: ['#000'], 
+                },
+            }
         };
 
         chartPollutants = new ApexCharts(chartPollutantsContainer, optionsPollutants);

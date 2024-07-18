@@ -46,7 +46,23 @@ document.addEventListener('DOMContentLoaded', function () {
             series: [],
             xaxis: {
                 type: 'category',
-                categories: []
+                categories: [],
+                title: {
+                    text: 'Dias do Mês',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Níveis de Poluentes',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
             },
             plotOptions: {
                 bar: {
@@ -64,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 style: {
                     fontSize: '16px'
                 }
+            },
+            legend: {
+                show: false
             }
         };
 
@@ -75,7 +94,23 @@ document.addEventListener('DOMContentLoaded', function () {
             series: [],
             xaxis: {
                 type: 'category',
-                categories: []
+                categories: [],
+                title: {
+                    text: 'Dias do Mês',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Nível de Poluente',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
             },
             plotOptions: {
                 bar: {
@@ -93,6 +128,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 style: {
                     fontSize: '16px'
                 }
+            },
+            legend: {
+                show: false
             }
         };
 
@@ -130,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function formatDate(dateString) {
         const [year, month, day] = dateString.split('-');
-        return `${day}-${month}-${year}`;
+        return `${day}`;
     }
 
     function renderCharts(data) {
@@ -157,7 +195,28 @@ document.addEventListener('DOMContentLoaded', function () {
             series: seriesPM25,
             xaxis: {
                 type: 'category',
-                categories: categories
+                categories: categories,
+                title: {
+                    text: 'Dias do Mês',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                },
+                labels: {
+                    formatter: function (value) {
+                        return value;
+                    }
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Nível de Poluente',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
             },
             plotOptions: {
                 bar: {
@@ -175,6 +234,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 style: {
                     fontSize: '16px'
                 }
+            },
+            legend: {
+                show: false
             }
         };
 
@@ -186,7 +248,28 @@ document.addEventListener('DOMContentLoaded', function () {
             series: seriesPM10,
             xaxis: {
                 type: 'category',
-                categories: categories
+                categories: categories,
+                title: {
+                    text: 'Dias do Mês',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                },
+                labels: {
+                    formatter: function (value) {
+                        return value;
+                    }
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Níveis de Poluentes',
+                    style: {
+                        fontSize: '14px',
+                        fontWeight: 'bold'
+                    }
+                }
             },
             plotOptions: {
                 bar: {
@@ -204,6 +287,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 style: {
                     fontSize: '16px'
                 }
+            },
+            legend: {
+                show: false
             }
         };
 
