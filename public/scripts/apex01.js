@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return val.toFixed(1);
                 }
             },
-            colors: ['#2c3339', '#747474'], // Cores personalizadas para PM2.5 e PM10
+            colors: ['#2c3339', '#747474'],
             legend: {
                 fontSize: '14px',
                 fontWeight: 'bold',
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return val.toFixed(1);
                 }
             },
-            colors: ['#2c3339', '#747474'], // Cores personalizadas para PM2.5 e PM10
+            colors: ['#2c3339', '#747474'], 
             legend: {
                 fontSize: '14px',
                 fontWeight: 'bold',

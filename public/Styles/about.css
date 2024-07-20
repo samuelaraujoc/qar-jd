@@ -1,0 +1,107 @@
+
+:root{
+    --cor-background: rgba(130, 201, 116, 0.945);
+    --cor-background-paragrafo: white;
+    --cor-titulo: #56802f;
+    --cor-subtitulo: #2e2b2b;
+    
+}
+
+
+
+.sobremim{
+    background-color: var(--cor-background);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2%;
+    padding: 60px;
+    
+    
+}
+.titulo__h1{
+    color: var(--cor-titulo) ;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 800;
+    margin-top: 2%;
+    
+}
+
+.conteudo__paragrafo{
+    background-color: var(--cor-background-paragrafo);
+    font-size: 20px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 0;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.212);
+    max-width: 100%;
+}
+.imagem{
+    max-width: 100%;
+    height: auto;
+    margin-left: 10px;
+}
+.conteudo__subtitulo{
+    color: var(--cor-subtitulo);
+    padding: 14px;
+    font-weight: 700;
+    
+    
+}
+.sobremim1{
+    
+    flex: 1; 
+}
+   
+ /* ---------------------------------------- */
+
+
+.sobremim2{
+    background-color: var(--cor-background);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2%;
+    padding: 60px;
+}
+
+
+.div_personalizada{
+        background-color: var(--cor-background-paragrafo);
+        font-size: 20px;
+        text-align: justify;
+        line-height: 1.5;
+        margin-bottom: 0; 
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.212);
+        
+    }
+
+    .SobreSaude{
+        background-color: var(--cor-background);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 2%;
+        padding: 30px;
+    }
+
+    .imagem1{
+        max-width: 50%;
+        height: auto;
+        margin-left: 10px;
+    }
+    
+
+    .sobremim3{
+        background-color: var(--cor-background);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 6%;
+        padding: 60px;
+    }

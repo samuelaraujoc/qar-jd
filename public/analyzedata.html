@@ -21,6 +21,34 @@
 
         <h3 class="text-center"> Histórico</h3>
 
+        <form id="dateForm2" class="text-center mb-4">
+            <div class="form-group">
+                <label for="singleDate2">Data:</label>
+                <input type="month" id="singleDate2" name="singleDate2" class="form-control d-inline-block w-auto">
+                <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
+            </div>
+            <div class="form-group text-center">
+                <label for="another-monitor-select"> <Strong>Gráficos Mês/Ano </Strong>Selecionar Monitor:</label>
+                <select id="another-monitor-select" class="form-control"></select>
+            </div>
+        </form>
+
+        <div id="niveis2" class="d-flex justify-content-center align-items-center">
+            <img src="img/Niveis2.png" alt="Indicadores visuais" class="responsive-img">
+        </div>
+
+        <div class="chart-container shadow">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div id="chart2" style="width: 100%; height: 350px;"></div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div id="chart3" style="width: 100%; height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="text-center">
             <img src="img/pm2.5.png" alt="" class="img-fluid rounded-border">
             <img src="img/pm10.png" alt="" class="img-fluid rounded-border">
@@ -68,47 +96,25 @@
             </div>
         </form>
 
-        <div id="chart" class="chart-container shadow "></div>
 
         <div id="chart-pollutants" class="chart-container shadow "></div>
         <div id="chart-meteorological" class="chart-container shadow "></div>
 
-
-        <form id="dateForm2" class="text-center mb-4">
+        <form id="dateForm3" class="text-center mb-4">
             <div class="form-group">
-                <label for="singleDate2">Data:</label>
-                <input type="month" id="singleDate2" name="singleDate2" class="form-control d-inline-block w-auto">
+                <label for="yearSelect">Selecione o Ano:</label>
+                <input type="number" id="yearSelect" name="yearSelect" class="form-control d-inline-block w-auto"
+                    min="2000" max="2099" step="1" value="2024">
                 <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
             </div>
             <div class="form-group text-center">
-                <label for="another-monitor-select"> <Strong>Gráficos Mês/Ano </Strong>Selecionar Monitor:</label>
+                <label for="another-monitor-select"> <Strong>Gráficos Ano </Strong>Selecionar Monitor:</label>
                 <select id="another-monitor-select" class="form-control"></select>
             </div>
         </form>
 
-        <div id="niveis2" class="d-flex justify-content-center align-items-center">
-            <img src="img/Niveis2.png" alt="Indicadores visuais" class="responsive-img">
-        </div>
+        <div id="chart4"></div>
 
-        <div class="chart-container shadow">
-            <div class="row">
-                <div class="col-lg-6 col-12">
-                    <div id="chart2" style="width: 100%; height: 350px;"></div>
-                </div>
-                <div class="col-lg-6 col-12">
-                    <div id="chart3" style="width: 100%; height: 350px;"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="chart-container shadow">
-        <div class="row">
-            <div class="col-lg-6 col-12">
-                <div id="chart4" style="width: 100%; height: 350px;"></div>
-            </div>
-        </div>
     </div>
 
     <div id="footer"></div>
@@ -119,6 +125,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="scripts/apex01.js"></script>
     <script src="scripts/apex02.js"></script>
+    <script src="scripts/apex04.js"></script>
     <script src="scripts/monitores.js"></script>
     <script src="scripts/script.js"></script>
 </body>

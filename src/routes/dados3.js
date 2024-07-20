@@ -12,9 +12,25 @@ router.get('/dados-anuais', async (req, res) => {
         const startDate = new Date(`${year}-01-01T00:00:00Z`);
         const endDate = new Date(`${year}-12-31T23:59:59Z`);
 
-        const data = await YourModel.find({
-            Timestamp: { $gte: startDate, $lte: endDate }
-        }).sort({ Timestamp: 1 });
+        const data = await YourModel.aggregate([
+            {
+                $match: {
+                    Timestamp: { $gte: startDate, $lte: endDate }
+                }
+            },
+            {
+                $group: {
+                    _id: {
+                        year: { $year: "$Timestamp" },
+                        dayOfYear: { $dayOfYear: "$Timestamp" }
+                    },
+                    avgPM25: { $avg: "$avgPM25" }
+                }
+            },
+            {
+                $sort: { "_id.dayOfYear": 1 }
+            }
+        ]);
 
         res.json({ documents: data });
     } catch (error) {
