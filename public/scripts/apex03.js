@@ -166,15 +166,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const chartElement = document.querySelector("#chart-line2");
 
         if (chartLineElement && chartElement) {
-            try {
-                chartLine = new ApexCharts(chartLineElement, optionsLine);
-                chart = new ApexCharts(chartElement, options);
+            chartLine = new ApexCharts(chartLineElement, optionsLine);
+            chart = new ApexCharts(chartElement, options);
 
-                chartLine.render().catch(error => console.error('Erro ao renderizar chartLine:', error));
-                chart.render().catch(error => console.error('Erro ao renderizar chart:', error));
-            } catch (error) {
-                console.error('Erro ao inicializar os gráficos:', error);
-            }
+            chartLine.render().catch(error => console.error('Erro ao renderizar chartLine:', error));
+            chart.render().catch(error => console.error('Erro ao renderizar chart:', error));
         } else {
             console.error('Elementos #chart-line ou #chart-line2 não encontrados no DOM.');
         }
