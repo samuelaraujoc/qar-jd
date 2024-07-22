@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 fontSize: '14px',
                 fontWeight: 'bold',
                 labels: {
-                    colors: ['#000'], 
+                    colors: ['#000'],
                 },
             }
         };
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 categories: [],
                 labels: {
                     formatter: function (value) {
-                        const date = new Date(value); 
+                        const date = new Date(value);
                         return `${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
                     }
                 }
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 categories: categories,
                 labels: {
                     formatter: function (value) {
-                        return value; 
+                        return value;
                     }
                 }
             },
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     return val.toFixed(1);
                 }
             },
-            colors: ['#2c3339', '#747474'], 
+            colors: ['#2c3339', '#747474'],
             legend: {
                 fontSize: '14px',
                 fontWeight: 'bold',
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 categories: categories,
                 labels: {
                     formatter: function (value) {
-                        return value; 
+                        return value;
                     }
                 }
             },
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 fontSize: '14px',
                 fontWeight: 'bold',
                 labels: {
-                    colors: ['#000'], 
+                    colors: ['#000'],
                 },
             }
         };

@@ -102,19 +102,24 @@
 
         <form id="dateForm3" class="text-center mb-4">
             <div class="form-group">
-                <label for="yearSelect">Selecione o Ano:</label>
-                <input type="number" id="yearSelect" name="yearSelect" class="form-control d-inline-block w-auto"
-                    min="2000" max="2099" step="1" value="2024">
-                <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
+                <label for="startDate">Data Inicial:</label>
+                <input type="date" id="startDate" name="startDate" class="form-control d-inline-block w-auto">
+            </div>
+            <div class="form-group">
+                <label for="endDate">Data Final   :</label>
+                <input type="date" id="endDate" name="endDate" class="form-control d-inline-block w-auto">
             </div>
             <div class="form-group text-center">
-                <label for="another-monitor-select"> <Strong>Gráficos Ano </Strong>Selecionar Monitor:</label>
-                <select id="another-monitor-select" class="form-control"></select>
+                <label for="another-monitor-select3"><strong>Gráficos Intervalo</strong> Selecionar Monitor:</label>
+                <select id="another-monitor-select3" class="form-control"></select>
             </div>
+            <button type="submit" class="btn btn-primary ml-2">Buscar Dados</button>
         </form>
+    
+       
+    
 
-        <div id="chart4"></div>
-
+       
     </div>
 
     <div id="footer"></div>
