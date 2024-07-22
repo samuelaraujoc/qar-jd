@@ -1,39 +1,67 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
+const DadoQualidadeAr = require('../models/dadoQualidadeAr');
 
-// Substitua 'YourModel' pelo modelo correto do MongoDB
-const YourModel = mongoose.model('YourModel', new mongoose.Schema({}, { strict: false }));
-
-router.get('/dados-intervalo', async (req, res) => {
-    const { startDate, endDate, monitor, pollutant } = req.query;
-
+// Endpoint para buscar dados com base em intervalo de datas
+router.get('/', async (req, res) => {
     try {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
+        const { startDate, endDate, moqaID } = req.query;
+        const match = {};
 
-        const data = await YourModel.aggregate([
-            {
-                $match: {
-                    Timestamp: { $gte: start, $lte: end },
-                    monitor: monitor
-                }
-            },
+        if (startDate && endDate) {
+            const startTimestamp = new Date(startDate).getTime() / 1000;
+            const endTimestamp = new Date(endDate).getTime() / 1000;
+            match.Timestamp = {
+                $gte: startTimestamp,
+                $lte: endTimestamp
+            };
+        }
+
+        if (moqaID) {
+            match.moqaID = moqaID;
+        }
+
+        // Agregação para calcular a média diária
+        const dados = await DadoQualidadeAr.aggregate([
+            { $match: match },
             {
                 $group: {
-                    _id: { $dateToString: { format: "%Y-%m-%d", date: "$Timestamp" } },
-                    avgValue: { $avg: `$${pollutant}` }
+                    _id: {
+                        year: { $year: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
+                        month: { $month: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
+                        day: { $dayOfMonth: { $toDate: { $multiply: ["$Timestamp", 1000] } } }
+                    },
+                    avgPM25: { $avg: "$pm25" },
+                    avgPM10: { $avg: "$pm10" }
                 }
             },
             {
-                $sort: { '_id': 1 }
-            }
+                $project: {
+                    _id: 0,
+                    Timestamp: {
+                        $dateToString: {
+                            format: "%Y-%m-%dT00:00:00Z",
+                            date: {
+                                $dateFromParts: {
+                                    year: "$_id.year",
+                                    month: "$_id.month",
+                                    day: "$_id.day"
+                                }
+                            }
+                        }
+                    },
+                    avgPM25: { $round: ["$avgPM25", 1] },
+                    avgPM10: { $round: ["$avgPM10", 1] }
+                }
+            },
+            { $sort: { Timestamp: 1 } }
         ]);
 
-        res.json({ documents: data });
+        const count = dados.length;
+
+        res.json({ count: count, documents: dados });
     } catch (error) {
-        console.error('Erro ao buscar dados:', error);
-        res.status(500).json({ error: 'Erro ao buscar dados' });
+        res.status(500).send('Erro ao buscar dados: ' + error.message);
     }
 });
 
