@@ -1,10 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
     let chart, chartLine;
 
-    // Inicializa os gráficos vazios
-    initializeEmptyCharts();
+    const chartLineElement = document.querySelector("#chart-line");
+    const chartElement = document.querySelector("#chart-line2");
 
-    document.getElementById('dateForm3').addEventListener('submit', fetchData);
+    if (chartLineElement && chartElement) {
+        initializeEmptyCharts();
+        document.getElementById('dateForm3').addEventListener('submit', fetchData);
+    } else {
+        console.error('Elementos #chart-line ou #chart-line2 não encontrados no DOM.');
+    }
 
     async function fetchData(event) {
         event.preventDefault();
@@ -27,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const data = await response.json();
-            console.log('Dados recebidos:', data.documents);
             renderCharts(data.documents);
         } catch (error) {
             console.error('Erro ao buscar dados:', error);
@@ -51,18 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         min: new Date().getTime(),
                         max: new Date().getTime()
                     }
-                },
-            },
-            colors: ['#008FFB', '#00E396'],
-            stroke: {
-                width: [1, 3],
-                curve: ['straight', 'monotoneCubic']
-            },
-            fill: {
-                type: 'gradient',
-                gradient: {
-                    opacityFrom: 0.91,
-                    opacityTo: 0.1,
                 }
             },
             xaxis: {
@@ -82,32 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chart: {
                 id: 'chart2',
                 type: 'line',
-                height: 230,
-                dropShadow: {
-                    enabled: true,
-                    enabledOnSeries: [1]
-                },
-                toolbar: {
-                    autoSelected: 'pan',
-                    show: false
-                }
-            },
-            colors: ['#008FFB', '#00E396'],
-            stroke: {
-                width: 3
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                width: [2, 6],
-                curve: ['straight', 'monotoneCubic']
-            },
-            fill: {
-                opacity: [1, 0.75],
-            },
-            markers: {
-                size: 0
+                height: 230
             },
             yaxis: [
                 {
@@ -122,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     labels: {
                         style: {
-                            colors: '#008FFB',
+                            colors: '#008FFB'
                         }
                     },
                     title: {
@@ -130,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         style: {
                             color: '#008FFB'
                         }
-                    },
+                    }
                 },
                 {
                     seriesName: 'PM10',
@@ -153,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         style: {
                             color: '#00E396'
                         }
-                    },
+                    }
                 }
             ],
             xaxis: {
@@ -161,27 +128,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
-        // Verifique se os elementos existem antes de inicializar os gráficos
-        const chartLineElement = document.querySelector("#chart-line");
-        const chartElement = document.querySelector("#chart-line2");
-
-        if (chartLineElement && chartElement) {
+        try {
             chartLine = new ApexCharts(chartLineElement, optionsLine);
             chart = new ApexCharts(chartElement, options);
 
-            chartLine.render().catch(error => console.error('Erro ao renderizar chartLine:', error));
-            chart.render().catch(error => console.error('Erro ao renderizar chart:', error));
-        } else {
-            console.error('Elementos #chart-line ou #chart-line2 não encontrados no DOM.');
-        }
-    }
-
-    function clearPreviousData() {
-        if (chart) {
-            chart.destroy();
-        }
-        if (chartLine) {
-            chartLine.destroy();
+            chartLine.render().catch(() => {});
+            chart.render().catch(() => {});
+        } catch (error) {
+            console.error('Erro ao inicializar os gráficos:', error);
         }
     }
 
