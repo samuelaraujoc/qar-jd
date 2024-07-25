@@ -60,9 +60,7 @@ router.get('/', async (req, res) => {
             { $sort: { date: 1 } }
         ]);
 
-        const count = dados.length;
-
-        res.json({ count: count, documents: dados });
+        res.json({ documents: dados });
     } catch (error) {
         res.status(500).send('Erro ao buscar dados: ' + error.message);
     }
