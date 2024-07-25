@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (chartLineElement && chartElement) {
         initializeEmptyCharts();
         document.getElementById('dateForm3').addEventListener('submit', fetchData);
-    } else {
-        console.error('Elementos #chart-line ou #chart-line2 não encontrados no DOM.');
-    }
+    } 
 
     async function fetchData(event) {
         event.preventDefault();
@@ -34,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const data = await response.json();
             renderCharts(data.documents);
         } catch (error) {
-            console.error('Erro ao buscar dados:', error);
         }
     }
 
@@ -132,16 +129,14 @@ document.addEventListener('DOMContentLoaded', function () {
             chartLine = new ApexCharts(chartLineElement, optionsLine);
             chart = new ApexCharts(chartElement, options);
 
-            chartLine.render().catch(() => {});
-            chart.render().catch(() => {});
+            chartLine.render();
+            chart.render();
         } catch (error) {
-            console.error('Erro ao inicializar os gráficos:', error);
         }
     }
 
     function renderCharts(data) {
         if (!data || data.length === 0) {
-            console.error('Nenhum dado recebido para renderizar os gráficos.');
             return;
         }
 
@@ -158,8 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (chart && chartLine) {
             chart.updateSeries([seriesPM25, seriesPM10]);
             chartLine.updateSeries([seriesPM25, seriesPM10]);
-        } else {
-            console.error('Os gráficos não foram inicializados corretamente.');
         }
     }
 });
