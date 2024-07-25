@@ -30,7 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const data = await response.json();
-            renderCharts(data.documents);
+            const startTimestamp = new Date(startDate).getTime();
+            const endTimestamp = new Date(endDate).getTime();
+
+            renderCharts(data.documents, startTimestamp, endTimestamp);
         } catch (error) {
         }
     }
@@ -135,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function renderCharts(data) {
+    function renderCharts(data, startTimestamp, endTimestamp) {
         if (!data || data.length === 0) {
             return;
         }
@@ -153,6 +156,22 @@ document.addEventListener('DOMContentLoaded', function () {
         if (chart && chartLine) {
             chart.updateSeries([seriesPM25, seriesPM10]);
             chartLine.updateSeries([seriesPM25, seriesPM10]);
+
+            // Calcula o intervalo de um mês dentro do intervalo total
+            const oneMonth = 30 * 24 * 60 * 60 * 1000; // Aproximadamente um mês em milissegundos
+            const initialSelectionMin = startTimestamp;
+            const initialSelectionMax = Math.min(startTimestamp + oneMonth, endTimestamp);
+
+            chartLine.updateOptions({
+                chart: {
+                    selection: {
+                        xaxis: {
+                            min: initialSelectionMin,
+                            max: initialSelectionMax
+                        }
+                    }
+                }
+            });
         }
     }
 });
