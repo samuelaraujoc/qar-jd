@@ -60,8 +60,15 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             colors: ['#000000', '#979797'], 
             stroke: {
-                curve: ['straight', 'smooth'], 
-                width: 4 
+                width: [2, 4],
+                curve: ['straight', 'smooth']
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    opacityFrom: 0.91,
+                    opacityTo: 0.1
+                }
             },
             xaxis: {
                 type: 'datetime',
@@ -72,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
             yaxis: {
                 max: 100,
                 tickAmount: 2
+            },
+            dropShadow: {
+                enabled: false
             }
         };
 
@@ -80,33 +90,47 @@ document.addEventListener('DOMContentLoaded', function () {
             chart: {
                 id: 'chart2',
                 type: 'line',
-                height: 230
+                height: 230,
+                dropShadow: {
+                    enabled: true,
+                    enabledOnSeries: [1]
+                },
+                toolbar: {
+                    autoSelected: 'pan',
+                    show: false
+                }
             },
             colors: ['#000000', '#979797'], 
             stroke: {
-                curve: ['straight', 'smooth'], 
-                width: 4 
+                width: [2, 4],
+                curve: ['straight', 'smooth'] 
+            },
+            fill: {
+                opacity: [1, 0.75]
+            },
+            markers: {
+                size: 0
             },
             yaxis: [
                 {
                     seriesName: 'PM2.5',
                     axisTicks: {
                         show: true,
-                        color: '#000000' 
+                        color: '#000000'
                     },
                     axisBorder: {
                         show: true,
-                        color: '#000000' 
+                        color: '#000000'
                     },
                     labels: {
                         style: {
-                            colors: '#000000' 
+                            colors: '#000000'
                         }
                     },
                     title: {
                         text: "PM2.5",
                         style: {
-                            color: '#000000' 
+                            color: '#000000'
                         }
                     }
                 },
@@ -115,21 +139,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     opposite: true,
                     axisTicks: {
                         show: true,
-                        color: '#979797' 
+                        color: '#979797'
                     },
                     axisBorder: {
                         show: true,
-                        color: '#979797' 
+                        color: '#979797'
                     },
                     labels: {
                         style: {
-                            colors: '#979797' 
+                            colors: '#979797'
                         }
                     },
                     title: {
                         text: "PM10",
                         style: {
-                            color: '#979797' 
+                            color: '#979797'
                         }
                     }
                 }
