@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             },
-            colors: ['#000000', '#979797'], // Cores para PM2.5 e PM10
+            colors: ['#000000', '#979797'], 
             stroke: {
-                curve: ['straight', 'smooth'], // PM2.5 será linha reta, PM10 será suavizada
-                width: 4 // Espessura das linhas
+                curve: ['straight', 'smooth'], 
+                width: 4 
             },
             xaxis: {
                 type: 'datetime',
@@ -82,31 +82,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 type: 'line',
                 height: 230
             },
-            colors: ['#000000', '#979797'], // Cores para PM2.5 e PM10
+            colors: ['#000000', '#979797'], 
             stroke: {
-                curve: ['straight', 'smooth'], // PM2.5 será linha reta, PM10 será suavizada
-                width: 4 // Espessura das linhas
+                curve: ['straight', 'smooth'], 
+                width: 4 
             },
             yaxis: [
                 {
                     seriesName: 'PM2.5',
                     axisTicks: {
                         show: true,
-                        color: '#000000' // Cor preta
+                        color: '#000000' 
                     },
                     axisBorder: {
                         show: true,
-                        color: '#000000' // Cor preta
+                        color: '#000000' 
                     },
                     labels: {
                         style: {
-                            colors: '#000000' // Cor preta
+                            colors: '#000000' 
                         }
                     },
                     title: {
                         text: "PM2.5",
                         style: {
-                            color: '#000000' // Cor preta
+                            color: '#000000' 
                         }
                     }
                 },
@@ -115,21 +115,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     opposite: true,
                     axisTicks: {
                         show: true,
-                        color: '#979797' // Cor cinza
+                        color: '#979797' 
                     },
                     axisBorder: {
                         show: true,
-                        color: '#979797' // Cor cinza
+                        color: '#979797' 
                     },
                     labels: {
                         style: {
-                            colors: '#979797' // Cor cinza
+                            colors: '#979797' 
                         }
                     },
                     title: {
                         text: "PM10",
                         style: {
-                            color: '#979797' // Cor cinza
+                            color: '#979797' 
                         }
                     }
                 }
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chart.updateSeries([seriesPM25, seriesPM10]);
             chartLine.updateSeries([seriesPM25, seriesPM10]);
 
-            const oneMonth = 30 * 24 * 60 * 60 * 1000; // Aproximadamente um mês em milissegundos
+            const oneMonth = 30 * 24 * 60 * 60 * 1000;
             const initialSelectionMin = startTimestamp;
             const initialSelectionMax = Math.min(startTimestamp + oneMonth, endTimestamp);
 

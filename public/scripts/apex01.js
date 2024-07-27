@@ -61,6 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             dataLabels: {
                 enabled: true,
+                style: {
+                    fontSize: '8px', // Ajuste o tamanho da fonte aqui
+                    fontWeight: 'bold', // Defina o peso da fonte como negrito
+                    colors: ['#FFFFFF'] // Defina a cor da fonte como branco
+                },
                 formatter: function (val) {
                     return val.toFixed(1);
                 }
@@ -91,6 +96,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
             colors: ['#0000FF', '#FF0000'],
+            dataLabels: {
+                enabled: true,
+                style: {
+                    fontSize: '10px', // Ajuste o tamanho da fonte aqui
+                    colors: ['#333']
+                },
+                formatter: function (val) {
+                    return val.toFixed(1);
+                }
+            },
             legend: {
                 fontSize: '14px',
                 fontWeight: 'bold',
@@ -175,6 +190,11 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             dataLabels: {
                 enabled: true,
+                style: {
+                    fontSize: '8px', // Ajuste o tamanho da fonte aqui
+                    fontWeight: 'bold', // Defina o peso da fonte como negrito
+                    colors: ['#FFFFFF'] // Defina a cor da fonte como branco
+                },
                 formatter: function (val) {
                     return val.toFixed(1);
                 }
@@ -195,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 height: 350
             },
             series: [{
-                name: 'Humidade',
+                name: 'Umidade',
                 data: data.map(d => ({
                     x: `${new Date(d.Timestamp).getHours()}:${String(new Date(d.Timestamp).getMinutes()).padStart(2, '0')}`,
                     y: d.avgHum
@@ -216,6 +236,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             },
             colors: ['#0000FF', '#FF0000'],
+            dataLabels: {
+                enabled: true,
+                style: {
+                    fontSize: '10px', // Ajuste o tamanho da fonte aqui
+                    colors: ['#333']
+                },
+                formatter: function (val) {
+                    return val.toFixed(1);
+                }
+            },
             legend: {
                 fontSize: '14px',
                 fontWeight: 'bold',
