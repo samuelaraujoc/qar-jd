@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             renderCharts(data.documents, startTimestamp, endTimestamp);
         } catch (error) {
+            console.error('Erro ao buscar dados:', error);
         }
     }
 
@@ -57,6 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             },
+            colors: ['#000000', '#979797'], 
+            stroke: {
+                width: [2, 4],
+                curve: ['straight', 'smooth']
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    opacityFrom: 0.91,
+                    opacityTo: 0.1
+                }
+            },
             xaxis: {
                 type: 'datetime',
                 tooltip: {
@@ -66,6 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
             yaxis: {
                 max: 100,
                 tickAmount: 2
+            },
+            dropShadow: {
+                enabled: false
             }
         };
 
@@ -74,28 +90,47 @@ document.addEventListener('DOMContentLoaded', function () {
             chart: {
                 id: 'chart2',
                 type: 'line',
-                height: 230
+                height: 230,
+                dropShadow: {
+                    enabled: true,
+                    enabledOnSeries: [1]
+                },
+                toolbar: {
+                    autoSelected: 'pan',
+                    show: false
+                }
+            },
+            colors: ['#000000', '#979797'], 
+            stroke: {
+                width: [2, 4],
+                curve: ['straight', 'smooth'] 
+            },
+            fill: {
+                opacity: [1, 0.75]
+            },
+            markers: {
+                size: 0
             },
             yaxis: [
                 {
                     seriesName: 'PM2.5',
                     axisTicks: {
                         show: true,
-                        color: '#008FFB'
+                        color: '#000000'
                     },
                     axisBorder: {
                         show: true,
-                        color: '#008FFB'
+                        color: '#000000'
                     },
                     labels: {
                         style: {
-                            colors: '#008FFB'
+                            colors: '#000000'
                         }
                     },
                     title: {
                         text: "PM2.5",
                         style: {
-                            color: '#008FFB'
+                            color: '#000000'
                         }
                     }
                 },
@@ -104,21 +139,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     opposite: true,
                     axisTicks: {
                         show: true,
-                        color: '#00E396'
+                        color: '#979797'
                     },
                     axisBorder: {
                         show: true,
-                        color: '#00E396'
+                        color: '#979797'
                     },
                     labels: {
                         style: {
-                            colors: '#00E396'
+                            colors: '#979797'
                         }
                     },
                     title: {
                         text: "PM10",
                         style: {
-                            color: '#00E396'
+                            color: '#979797'
                         }
                     }
                 }
@@ -135,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chartLine.render();
             chart.render();
         } catch (error) {
+            console.error('Erro ao inicializar gráficos:', error);
         }
     }
 
@@ -157,8 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
             chart.updateSeries([seriesPM25, seriesPM10]);
             chartLine.updateSeries([seriesPM25, seriesPM10]);
 
-            // Calcula o intervalo de um mês dentro do intervalo total
-            const oneMonth = 30 * 24 * 60 * 60 * 1000; // Aproximadamente um mês em milissegundos
+            const oneMonth = 30 * 24 * 60 * 60 * 1000;
             const initialSelectionMin = startTimestamp;
             const initialSelectionMax = Math.min(startTimestamp + oneMonth, endTimestamp);
 
