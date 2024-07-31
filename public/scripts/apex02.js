@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function fetchData(event) {
         event.preventDefault();
         const singleDate2 = document.getElementById('singleDate2').value;
-        const moqaID = document.getElementById('another-monitor-select').value;
+        const moqaID = document.getElementById('monitor-select-main').value;
 
         if (!singleDate2) {
             alert('Por favor, selecione uma data.');

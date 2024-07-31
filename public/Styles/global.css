@@ -6,14 +6,14 @@
     font-weight: bold;
 }
 .header-links a {
-    color: rgb(245, 242, 242); /* Cor inicial do link */
-    text-decoration: none; /* Remove o sublinhado padrão */
-    padding: 5px 10px; /* Espaçamento interno para o link */
-    transition: color 0.3s, border-bottom 0.3s; /* Suaviza a transição das cores e borda */
+    color: rgb(245, 242, 242); 
+    text-decoration: none; 
+    padding: 5px 10px; 
+    transition: color 0.3s, border-bottom 0.3s; 
 }
 
 .header-links a:hover {
-    color: rgb(6, 2, 20); /* Cor do link quando o mouse está sobre ele */
+    color: rgb(6, 2, 20); 
 }   
 
 /* barra de Navegação  */
@@ -27,7 +27,7 @@
 }
 
 .navbar .nav-link:hover {
-    color: #527209 !important; /* Cor verde escuro ao passar o mouse */
+    color: #527209 !important; 
 }
 .logo {
     height: 50px;

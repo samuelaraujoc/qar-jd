@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         const startDate = document.getElementById('startDate').value;
         const endDate = document.getElementById('endDate').value;
-        const moqaID = document.getElementById('another-monitor-select3').value;
+        const moqaID = document.getElementById('monitor-select-main').value;
 
         if (!startDate || !endDate) {
             alert('Por favor, selecione um intervalo de datas.');
