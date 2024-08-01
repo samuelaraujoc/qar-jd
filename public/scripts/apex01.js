@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function fetchData(event) {
         event.preventDefault();
         const singleDate = document.getElementById('singleDate').value;
-        const moqaID = document.getElementById('monitor-select').value;
+        const moqaID = document.getElementById('monitor-select-main').value;
 
         if (!singleDate) {
             alert('Por favor, selecione uma data.');
@@ -62,9 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
             dataLabels: {
                 enabled: true,
                 style: {
-                    fontSize: '8px', // Ajuste o tamanho da fonte aqui
-                    fontWeight: 'bold', // Defina o peso da fonte como negrito
-                    colors: ['#FFFFFF'] // Defina a cor da fonte como branco
+                    fontSize: '8px', 
+                    fontWeight: 'bold', 
+                    colors: ['#FFFFFF'] 
                 },
                 formatter: function (val) {
                     return val.toFixed(1);
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dataLabels: {
                 enabled: true,
                 style: {
-                    fontSize: '10px', // Ajuste o tamanho da fonte aqui
+                    fontSize: '10px',
                     colors: ['#333']
                 },
                 formatter: function (val) {
@@ -191,9 +191,9 @@ document.addEventListener('DOMContentLoaded', function () {
             dataLabels: {
                 enabled: true,
                 style: {
-                    fontSize: '8px', // Ajuste o tamanho da fonte aqui
-                    fontWeight: 'bold', // Defina o peso da fonte como negrito
-                    colors: ['#FFFFFF'] // Defina a cor da fonte como branco
+                    fontSize: '8px', 
+                    fontWeight: 'bold', 
+                    colors: ['#FFFFFF']
                 },
                 formatter: function (val) {
                     return val.toFixed(1);
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dataLabels: {
                 enabled: true,
                 style: {
-                    fontSize: '10px', // Ajuste o tamanho da fonte aqui
+                    fontSize: '10px',
                     colors: ['#333']
                 },
                 formatter: function (val) {
