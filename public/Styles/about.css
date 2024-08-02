@@ -7,8 +7,6 @@
     
 }
 
-
-
 .sobremim{
     background-color: var(--cor-background);
     display: flex;
@@ -100,8 +98,28 @@
     .sobremim3{
         background-color: var(--cor-background);
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         margin-top: 6%;
-        padding: 60px;
+        padding: 30px;
+    }
+
+    .conteudo__subtitulo2{
+        color: var(--cor-subtitulo);
+        padding: 8px;
+        font-weight: 500;
+        margin-bottom: 40px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    
+    .logo_realização{
+        text-align: center;
+        margin: 0 10px;
+        flex: 1 1 300px;
+        max-width: 100%;
+        height: auto;
+        margin-left: 10px;
+        max-width: 180px;
     }

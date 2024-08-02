@@ -166,9 +166,19 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             chartLine = new ApexCharts(chartLineElement, optionsLine);
             chart = new ApexCharts(chartElement, options);
-
+    
             chartLine.render();
             chart.render();
+    
+            setTimeout(() => {
+                if (chart) chart.render();
+                if (chartLine) chartLine.render();
+            }, 1000); 
+    
+            window.addEventListener('resize', () => {
+                if (chart) chart.render();
+                if (chartLine) chartLine.render();
+            });
         } catch (error) {
             console.error('Erro ao inicializar gráficos:', error);
         }
