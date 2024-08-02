@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 #monitor-select,
 #monitor-select option,
 #another-monitor-select {
@@ -159,6 +160,23 @@ h3.text-center {
     border-radius: 10px;
     box-shadow: -4px 0px 10px 10px #00000040;
     height: 100%;
+}
+.imgIcon{
+    width: 30px;
+    height: 30px;
+    size: 5px;
+}
+.popupCustom .leaflet-popup-tip,
+.popupCustom .leaflet-popup-content-wrapper {
+    background: white;
+    width:600px;
+    height: auto;
+    opacity: 0.8;
+    color: black;
+    font-family:'Alfa Slab One';
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #map {
