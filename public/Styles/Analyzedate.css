@@ -14,7 +14,7 @@
 #chart-line, #chart-line2 {
     width: 100%;
     height: 100%;
-    min-height: 130px; /* ou o tamanho que você achar necessário */
+    min-height: 130px;
 }
 
 .img-fluid {
@@ -26,8 +26,8 @@
 .h1-custom-heading {
     font-weight: bold;
     color: rgb(25, 135, 84);
-    margin-top: 30px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
     text-align: center;
 }
 
@@ -35,11 +35,11 @@ h3.text-center {
     font-size: 30px;
     color: rgb(25, 135, 84);
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .text-center.mb-4 {
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -78,7 +78,7 @@ h3.text-center {
 
 #monitorForm {
     padding: 5px;
-    width: 650px; /* Define a largura do formulário, ajuste conforme necessário */
+    width: 650px;
 }
 
 #monitor-select-main {
@@ -97,75 +97,7 @@ h3.text-center {
     font-size: 15px;
 }
 
-/* Novo conteúdo */
-
-.info-container {
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: -4px 0px 10px 10px #00000040;
-}
-
-.info-header {
-    background-color: #41c006;
-    color: white;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-}
-
-.info-title h2 {
-    font-size: 2rem;
-    margin: 0;
-}
-
-.info-title p {
-    margin: 0;
-    font-size: 1rem;
-}
-
-.info-status h3 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-.info-content {
-    padding: 10px;
-}
-
-.recomendation {
-    text-align: center;
-}
-
-.recomendation img {
-    width: 50px;
-    height: 50px;
-}
-
-@media (max-width: 768px) {
-    .info-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .info-status {
-        margin-top: 10px;
-    }
-
-    .recomendation {
-        width: 45%;
-    }
-}
-
-.info-container {
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: -4px 0px 10px 10px #00000040;
-    height: 100%;
-}
-.imgIcon{
-    width: 30px;
-    height: 30px;
-    size: 5px;
-}
+/* Mapa CSS */
 .popupCustom .leaflet-popup-tip,
 .popupCustom .leaflet-popup-content-wrapper {
     background: white;
@@ -184,4 +116,150 @@ h3.text-center {
     height: 450px;
     border-radius: 15px;
     border: 2px solid #035a0a;
+}
+
+
+/* Novo conteúdo */
+
+.info-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+}
+
+.info-header {
+    background-color: #a8e05f;
+    color: #5a5a5a;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150 px; /* Aumenta a altura */
+}
+
+.info-title {
+    display: flex;
+    align-items: center;
+}
+
+.icon-pm-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.icon-pm {
+    margin-right: 10px;
+    width: 128px;
+    height: 135px;
+}
+
+.centered-text {
+    position: absolute;
+    top: 55%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.text-container p {
+    margin: 0;
+    font-size: 1rem;
+    color: #5a5a5a;
+}
+
+.text-container h3 {
+    margin: 2px 0 0 0;
+    font-size: 3.5rem;
+    color: #6a6a6a
+}
+
+.info-status {
+    display: flex;
+    align-items: center;
+}
+
+.smile-icon {
+    width: 165px;
+    height: 158px;
+    margin-left: 15px;
+}
+
+.info-content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px;
+}
+
+.recomendacao-titulo {
+    color: #ff8c00;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.recomendation {
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.recomendation img {
+    width: 90px;
+    height: 90px;
+    margin-right: 15px;
+}
+
+.recomendation p {
+    font-size: 1rem;
+    color: #333333;
+    font-weight: bold;
+}
+
+.fonte-text {
+    color: #333333;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.fonte-text a {
+    color: #cf7608;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .info-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info-status {
+        margin-top: 10px;
+    }
+
+    .recomendation {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .smile-icon {
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    .fonte-text {
+        text-align: center;
+    }
 }
