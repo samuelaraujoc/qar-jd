@@ -20,7 +20,6 @@
 
     <div class="container-fluid custom-padding mx-auto">
         <h1 class="h1-custom-heading"> Análise de dados - Qualidade do ar em Fortaleza</h1>
-        <h3 class="text-center"> Histórico</h3>
 
         <form id="monitorForm" class="text-center mb-4 ">
             <div class="form-group  d-flex flex-column">
@@ -62,35 +61,44 @@
             <div class="col-md-3">
                 <div id="map"></div>
             </div>
+            
             <div class="col-md-8 py-6">
                 <div class="info-container">
                     <div class="info-header d-flex justify-content-between align-items-center">
-                        <div class="info-title">
-                            <h2>12 PM<sub>2.5</sub></h2>
-                            <p>QAR Fortaleza</p>
+                        <div class="info-title d-flex align-items-center">
+                            <div class="icon-pm-container">
+                                <img src="img/teste img/pm.png" alt="Ícone PM2.5" class="img-fluid icon-pm">
+                                <div class="centered-text">12</div>
+                            </div>
+                            <div class="text-container ml-3"> <!-- Adicionado para posicionar o texto ao lado da imagem -->
+                                <p>QAR Fortaleza</p>
+                                <h3>Bom</h3>
+                            </div>
                         </div>
-                        <div class="info-status">
-                            <h3>Bom</h3>
+                        <div class="info-status d-flex align-items-center">
+                            <img src="img/teste img/carinhaBom.png" alt="Ícone de sorriso" class="smile-icon img-fluid">
                         </div>
                     </div>
                     <div class="info-content mt-3">
-                        <h4>Recomendações à Saúde</h4>
-                        <div class="d-flex justify-content-between mt-3">
-                            <div class="recomendation">
-                                <img src="img/mascara.png" alt="Uso de máscara" class="img-fluid">
-                                <p>Uso de máscara</p>
+                        <h4 class="recomendacao-titulo">RECOMENDAÇÕES À SAÚDE</h4>
+                        <div class="d-flex justify-content-start align-items-center mt-3">
+                            <div class="recomendation d-flex align-items-center">
+                                <img src="img/teste img/mascara.png" alt="Uso de máscara" class="img-fluid">
+                                <p><strong>Uso de máscara</strong></p>
                             </div>
-                            <div class="recomendation">
-                                <img src="img/exercicio.png" alt="Exercícios ao ar livre" class="img-fluid">
-                                <p>Exercícios ao ar livre</p>
+                            <div class="recomendation d-flex align-items-center ml-5">
+                                <img src="img/teste img/exercicio.png" alt="Exercícios ao ar livre" class="img-fluid">
+                                <p><strong>Exercícios ao ar livre</strong></p>
                             </div>
                         </div>
-                        <p class="mt-3">Fonte: <a href="https://www.iqair.com/brasil/ceara/fortaleza"
-                                target="_blank">iqair.com</a></p>
+                        <p class="mt-3 fonte-text text-right">Fonte: <a href="https://www.iqair.com/brasil/ceara/fortaleza" target="_blank">https://www.iqair.com/brasil/ceara/fortaleza</a></p>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <h3 class="text-center"> Histórico</h3>
+
 
         <form id="dateForm2" class="text-center mb-4">
             <div class="form-group">
@@ -130,9 +138,14 @@
         </form>
 
         <div id="chart-pollutants" class="chart-container shadow "></div>
-        <div id="chart-meteorological" class="chart-container shadow" style="position: relative; background-image: url('img/logo-arqual2.png'); background-repeat: no-repeat; background-size: 283px 223px; background-position: center center;"><div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.5); pointer-events: none;"></div></div>
+        <div id="chart-meteorological" class="chart-container shadow"
+            style="position: relative; background-image: url('img/logo-arqual2.png'); background-repeat: no-repeat; background-size: 283px 223px; background-position: center center;">
+            <div
+                style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.5); pointer-events: none;">
+            </div>
+        </div>
 
-        
+
         <form id="dateForm3" class="text-center mb-4">
             <label for="startDate"><strong>Grafico Intervalo:</strong></label>
             <div class="form-group d-inline-block mr-2">
