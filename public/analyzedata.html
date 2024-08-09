@@ -36,7 +36,7 @@
                     <option value="AG4F3T">(Aerolândia / Rotatória) Av. Governador Raul Barbosa - AG4F3T</option>
                     <option value="DC40AC">(Aldeota / Praça Portugal) Av. Dom Luís (Praça Portugal)- DC40AC</option>
                     <option value="DC663C">(Centro / Paço Municipal) Rua São José SN - DC663C</option>
-                    <option value="DD2BA4">(Beira Mar) Av. Beira Mar X Av. Desembargador Moreira - DD2BA4/option>
+                    <option value="DD2BA4">(Beira Mar) Av. Beira Mar X Av. Desembargador Moreira - DD2BA4</option>
                     <option value="DD2BDC">(Itaperi) Avenida Bernardo Manuel X Avenida Dr. Silas Munguba - DD2BDC
                     </option>
                     <option value="DD31EC">(Mucuripe) Av. Vicente de Castro (Areninha Morro Santa Terezinha) - DD31EC
@@ -68,9 +68,9 @@
                         <div class="info-title d-flex align-items-center">
                             <div class="icon-pm-container">
                                 <img src="img/teste img/pm.png" alt="Ícone PM2.5" class="img-fluid icon-pm">
-                                <div class="centered-text">12</div>
+                                <div id="pm25-value" class="centered-text">0</div>
                             </div>
-                            <div class="text-container ml-3"> <!-- Adicionado para posicionar o texto ao lado da imagem -->
+                            <div class="text-container ml-3">
                                 <p>QAR Fortaleza</p>
                                 <h3>Bom</h3>
                             </div>
@@ -196,9 +196,11 @@
     <script src="scripts/apex02.js"></script>
     <script src="scripts/apex03.js"></script>
     <script src="scripts/script.js"></script>
+    ~<script src="scripts/scrollmap.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="./scripts/mapa.js" type="module"></script>
+    <script src="scripts/container.js"></script>
 </body>
 
 </html>
