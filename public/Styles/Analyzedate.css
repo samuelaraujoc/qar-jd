@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
-#monitor-select,
+#monitor-select-main,
 #monitor-select option,
 #another-monitor-select {
     cursor: pointer;
@@ -131,7 +131,7 @@ h3.text-center {
 }
 
 .info-header {
-    background-color: #a8e05f;
+    background-color: #b1b8b1;
     color: #5a5a5a;
     padding: 10px;
     border-radius: 10px 10px 0 0;
@@ -154,8 +154,8 @@ h3.text-center {
 
 .icon-pm {
     margin-right: 10px;
-    width: 128px;
-    height: 135px;
+    width: 120px;
+    height: 120px;
 }
 
 .centered-text {
