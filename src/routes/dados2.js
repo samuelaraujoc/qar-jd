@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const DadoQualidadeAr = require('../models/dadoQualidadeAr');
 
-// Endpoint para buscar dados com base em mês
 router.get('/', async (req, res) => {
     try {
         const { singleDate2, moqaID } = req.query;
