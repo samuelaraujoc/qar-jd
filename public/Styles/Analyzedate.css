@@ -21,6 +21,8 @@
     max-width: 100%;
     height: auto;
     margin-top: 10px;
+    border-radius: 20px 20px 20px !important;
+
 }
 
 .h1-custom-heading {
@@ -36,6 +38,7 @@ h3.text-center {
     color: rgb(25, 135, 84);
     font-weight: bold;
     margin-top: 40px;
+
 }
 
 .text-center.mb-4 {
@@ -55,6 +58,7 @@ h3.text-center {
 .responsive-img {
     max-width: 150%;
     height: auto;
+    border-radius: 10px 10px 10px;
 }
 
 .custom-padding {
@@ -77,7 +81,6 @@ h3.text-center {
 }
 
 #monitorForm {
-    padding: 5px;
     width: 650px;
 }
 
@@ -118,7 +121,6 @@ h3.text-center {
     border: 2px solid #035a0a;
 }
 
-
 /* Novo conteúdo */
 
 .info-container {
@@ -131,7 +133,7 @@ h3.text-center {
 }
 
 .info-header {
-    background-color: #b1b8b1;
+    background-color: #777777;
     color: #5a5a5a;
     padding: 10px;
     border-radius: 10px 10px 0 0;

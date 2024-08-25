@@ -14,7 +14,12 @@ router.get('/:moqaID', async (req, res) => {
 
         const latestData = data[0];
         const formattedPM25 = parseFloat(latestData.pm25).toFixed(1);
-        res.json({ latestPM25: formattedPM25 });
+        const formattedTimestamp = new Date(latestData.Timestamp * 1000).toLocaleString('pt-BR');
+        
+        res.json({ 
+            latestPM25: formattedPM25,
+            timestamp: formattedTimestamp
+        });
     } catch (error) {
         res.status(500).send('Erro ao buscar dados: ' + error.message);
     }
