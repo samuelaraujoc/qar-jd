@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     monitorSelect.addEventListener('change', async function () {
         const moqaID = monitorSelect.value;
-
+       
         try {
             const response = await fetch(`/info/${moqaID}`);
             const data = await response.json();

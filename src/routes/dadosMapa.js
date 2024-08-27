@@ -5,9 +5,9 @@ const DadoQualidadeAr = require('../models/dadoQualidadeAr');
 // Endpoint existente para buscar dados com base em data
 router.get('/', async (req, res) => {
     try {
-        var { singleDate, moqaID } = req.query;
+        const { singleDate} = req.query;
+        
         const match = {};
-
         if (singleDate) {
             const date = new Date(singleDate);
             const startTimestamp = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 0, 0, 0).getTime() / 1000;
@@ -18,31 +18,28 @@ router.get('/', async (req, res) => {
             };
         }
 
-        if (moqaID) {
-            match.moqaID = moqaID;
-        }
-
         // Agregação para calcular a média por hora
         const dados = await DadoQualidadeAr.aggregate([
             { $match: match },
             {
                 $group: {
+                
                     _id: {
                         year: { $year: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
                         month: { $month: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
                         day: { $dayOfMonth: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
-                        hour: { $hour: { $toDate: { $multiply: ["$Timestamp", 1000] } } }
+                        hour: { $hour: { $toDate: { $multiply: ["$Timestamp", 1000] } } },
+                        moqa: "$moqaID"
                     },
                     avgPM25: { $avg: "$pm25" },
                     avgPM10: { $avg: "$pm10" },
                     avgHum: { $avg: "$hum" },
-                    avgExtTemp: { $avg: "$extTemp" },
-                    count: { $sum: 1 }
+                    avgExtTemp: { $avg: "$extTemp" }
                 }
             },
             {
                 $project: {
-                    _id: 0,
+                    "_id.moqa": 1,
                     Timestamp: {
                         $dateToString: {
                             format: "%Y-%m-%dT%H:00:00Z",
@@ -60,18 +57,14 @@ router.get('/', async (req, res) => {
                     avgPM10: { $round: ["$avgPM10", 1] },
                     avgHum: { $round: ["$avgHum", 1] },
                     avgExtTemp: { $round: ["$avgExtTemp", 1] },
-                    count: 1
                 }
             },
             { $sort: { Timestamp: 1 } }
         ]);
 
-        const count = dados.length;
-
-        res.json( dados );
+        res.json(dados);
     } catch (error) {
         res.status(500).send('Erro ao buscar dados: ' + error.message);
     }
 });
-
 module.exports = router;
