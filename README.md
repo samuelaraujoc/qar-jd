@@ -18,22 +18,13 @@ A aplicação realiza requisições ao banco de dados e exibe indicadores visuai
 ## Tecnologias Utilizadas
 
 - **Frontend:** javaScript, CSS3, HTML4, Bootstrap
-<img src="./public/img/readme/javascript.png" alt="" width="25"/>
-<img src="./public/img/readme/html.png" alt="" width="25"/>
-<img src="./public/img/readme/css-3.png" alt="" width="25"/>
-<img src="./public/img/readme/bootstrap.png" alt="" width="25"/>
+<img src="./public/img/readme/javascript.png" alt="" width="25"/> <img src="./public/img/readme/html.png" alt="" width="25"/> <img src="./public/img/readme/css-3.png" alt="" width="25"/> <img src="./public/img/readme/bootstrap.png" alt="" width="25"/>
 
-- **Backend:** Node.js, Express.js
-<img src="./public/img/readme/nodejs.png" alt="" width="30"/>
-<img src="./public/img/readme/express-js.png" alt="" width="25"/>
+- **Backend:** Node.js, Express.js <img src="./public/img/readme/nodejs.png" alt="" width="30"/> <img src="./public/img/readme/express-js.png" alt="" width="25"/>
 
-- **Banco de Dados:**  MongoDB
-<img src="./public/img/readme/mongodb.png" alt="" width="25"/>
+- **Banco de Dados:**  MongoDB <img src="./public/img/readme/mongodb.png" alt="" width="25"/>
 
-- **Bibliotecas:** ApexCharts.JS, Leaflet
-<img src="./public/img/readme/apexchart.png" alt="" width="25"/>
-<img src="./public/img/readme/leaflet.png" alt="" width="40"/>
-
+- **Bibliotecas:** ApexCharts.JS, Leaflet <img src="./public/img/readme/apexchart.png" alt="" width="25"/> <img src="./public/img/readme/leaflet.png" alt="" width="40"/>
 
 ## Pré-requisitos
 
